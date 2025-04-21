@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35825.156
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter01", "Chapter01", "{DDB4EF12-CC4E-5E88-E6FC-71A802F4DE97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "productSample", "Chapter01\productSample\productSample.csproj", "{8FC20700-A849-449D-9C77-156AA02281FE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter02", "Chapter02", "{3DF45D4A-CE31-44D1-8084-70255F2FE10B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceConverter", "Chapter02\DistanceConverter\DistanceConverter.csproj", "{459FBE2A-88F4-4CFB-BDB1-6209F589704B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8FC20700-A849-449D-9C77-156AA02281FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FC20700-A849-449D-9C77-156AA02281FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FC20700-A849-449D-9C77-156AA02281FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FC20700-A849-449D-9C77-156AA02281FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{459FBE2A-88F4-4CFB-BDB1-6209F589704B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{459FBE2A-88F4-4CFB-BDB1-6209F589704B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{459FBE2A-88F4-4CFB-BDB1-6209F589704B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{459FBE2A-88F4-4CFB-BDB1-6209F589704B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8FC20700-A849-449D-9C77-156AA02281FE} = {DDB4EF12-CC4E-5E88-E6FC-71A802F4DE97}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {716C1454-E5E1-4A07-96B7-8D582FA48E10}
+	EndGlobalSection
+EndGlobal
