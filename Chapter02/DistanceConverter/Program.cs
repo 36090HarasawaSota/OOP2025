@@ -10,6 +10,7 @@ namespace DistanceConverter {
             int start = int.Parse(args[1]);               //int.Parse()=int型に変換
             int end = int.Parse(args[2]);
 
+
             if (args.Length >= 1 && args[0] == "-tom") {      //&&＝かつ
                 PrintFeetToMeterList(start, end);
             } else {
@@ -32,14 +33,6 @@ namespace DistanceConverter {
                     Console.WriteLine($"{meter}m = {feet:0.0000}ft");
                 }
             }
-        }
-
-        public double FeetToMeter(int feet) {
-            return feet * 0.34048;
-        }
-
-        public double MeterToFeet(int meter) {
-            return meter / 0.34048;
         }
 
     }
