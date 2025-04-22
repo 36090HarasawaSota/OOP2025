@@ -20,7 +20,7 @@ namespace DistanceConverter {
             //フィートからメートルへの対応表を出力  
             static void PrintFeetToMeterList(int start,int end) {
                 for (int feet = start; feet <= end; feet++) {
-                    double meter = FeetConverter.FromMeter(feet);
+                    double meter = FeetConverter.FromMeter(feet);           //静的メソッド
                     Console.WriteLine($"{feet}m = {meter:0.0000}ft");
                 }
             }
