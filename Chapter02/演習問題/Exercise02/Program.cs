@@ -17,6 +17,7 @@
         }
 
 
+
         static void PrintMeterToinchList() {
             for (int meter = 1; meter <= 10; meter++) {
                 double inch = inchConverter.ToMeter(meter);           //静的メソッド
@@ -24,7 +25,6 @@
             }
         }
 
-    }
-}
+    }}
         
     
