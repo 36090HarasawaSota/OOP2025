@@ -15,8 +15,7 @@ namespace Exercise02 {
             Console.WriteLine(">1");
 
             Console.WriteLine("ヤードの値を入力してください");
-            Console.WriteLine("変換前");
-            int yard = int.Parse(Console.ReadLine());
+            int yard = int.Parse(Console.ReadLine());　　　　//打った文字を数字に変換
             Console.WriteLine("変換前(ヤード):" + yard);
             PrintyardToMeterList(yard);
         }
