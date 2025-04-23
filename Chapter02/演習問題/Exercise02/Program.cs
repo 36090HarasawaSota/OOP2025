@@ -10,7 +10,7 @@
 
             Console.WriteLine();
             Console.WriteLine("はじめ: 1");
-            Console.WriteLine("終わり: 2");
+            Console.WriteLine("終わり: 10");
             
             PrintinchToMeterList();
 
