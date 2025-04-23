@@ -11,7 +11,7 @@ namespace Exercise02 {
             return inch * 0.0254;
         }
 
-        public static double ToMeter(double meter) {
+        public static double ToMeter(int meter) {
             return meter / 0.0254;
         }
     }
