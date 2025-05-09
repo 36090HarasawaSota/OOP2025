@@ -4,7 +4,7 @@
         static void Main(string[] args) {
 
            
-            SalesCounter sales = new SalesCounter(SalesCounter.ReadSales(@"data\sales.csv"));
+            SalesCounter sales = new SalesCounter(@"data\sales.csv");
             Dictionary<string, int> amountsPerStore = sales.GetPerStoreSales();
             foreach (KeyValuePair<string, int> obj in amountsPerStore) {
                 Console.WriteLine($"{obj.Key} {obj.Value}");
