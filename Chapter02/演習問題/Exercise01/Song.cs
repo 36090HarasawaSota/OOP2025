@@ -15,7 +15,7 @@ namespace Exercise01 {
 
         public int Length { get; set; }
 
-        Song Songs = new Song("リメンバーミー","risa",600);
+        
 
         //2.1.2
         public Song(String title, String artistName, int Length) {
