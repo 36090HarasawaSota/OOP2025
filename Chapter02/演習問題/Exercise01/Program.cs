@@ -1,0 +1,21 @@
+﻿namespace Exercise01 {
+    internal class Program {
+       
+    static void Main(string[] args) {
+          //2.1.3
+    
+    }
+
+
+
+
+
+    //2.1.4
+        public static void printSongs(Song[] songs) {
+
+        }
+    
+    
+    
+    }
+}

@@ -14,8 +14,8 @@ namespace SalesCalculator {
         }
 
         //店舗別売り上げを求める
-        public IDictionary<string,int> GetPerStoreSales() {
-            var dict = new SortedDictionary<string, int>();
+        public IDictionary<string,int> GetPerStoreSales() {    //IDictionaryを書いたら同じメソッド内の
+            var dict = new SortedDictionary<string, int>();    //のものは〇〇Dictionarydeでいい
             foreach (var sale in _sales) {
                 if (dict.ContainsKey(sale.ShopName)) {
                     dict[sale.ShopName] += sale.Amount;
