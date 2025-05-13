@@ -5,16 +5,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Exercise01{
-   
+namespace Exercise01 {
+
     //2.1.1
-    public class Song{
-        
-        String Title = String.Empty;
-        String ArtistName = String.Empty;
-        int Length;
+    public class Song {
+        public string Title { get; set; } = String.Empty;
 
+        public string ArtistName { get; set; } = String.Empty;
+
+        public int Length { get; set; }
+
+        Song Songs = new Song("リメンバーミー","risa",600);
+
+        //2.1.2
+        public Song(String title, String artistName, int Length) {
+            
+        }
     }
-
-    //2.1.2
 }
