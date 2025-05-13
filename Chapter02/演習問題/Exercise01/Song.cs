@@ -18,8 +18,11 @@ namespace Exercise01 {
         
 
         //2.1.2
-        public Song(String title, String artistName, int Length) {
-            
+        public Song(String title, String artistName, int length) {
+            Title = title;
+            ArtistName = artistName;
+            Length = length;
+
         }
     }
 }

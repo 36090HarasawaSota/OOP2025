@@ -8,8 +8,8 @@
         new Song("Close To You", "Carpenters", 276),
         new Song("Honesty", "Billy Joel", 231),
         new Song("I Will Always Love You", "Whitney Houston", 273),
-};
-        }
+        };
+    }
 
 
 
@@ -17,7 +17,7 @@
 
     //2.1.4
         public static void printSongs(Song[] songs) {
-
+            Console.WriteLine(songs);
         }
     
     
