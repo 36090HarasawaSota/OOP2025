@@ -1,25 +1,38 @@
-﻿namespace Section01 {
+﻿using System.Security.Cryptography.X509Certificates;
+
+namespace Section01 {
     internal class Program {
-        static void Main(string[] args) {
+            
+        public delegate bool Judgement(int value);          // dデリゲートの宣言
 
+        static void Main(string args) { 
+           // Console.WriteLine("カウントしたい数字");
+           //int num = int.Parse(Console.ReadLine());
+           
+            var numbers = new[] { 5, 3, 9, 6, 7, 5, 8, 1, 0, 5, 10, };
 
-            Console.WriteLine("カウントしたい数字");
-            int num = int.Parse(Console.ReadLine());
-            Console.WriteLine(num + "は"+ Count(num) + "個です");
-        }
-            static int Count(int num) {
-                var numbers = new[] { 5, 3, 9, 6, 7, 5, 8, 1, 0, 5, 10, };
+            Judgement judge = IsEven;
+            Console.WriteLine(Count(numbers,judge));
+            
+            }
+            
+            //メソッドへ渡す処理
+            static bool IsEven(int n) {
+            return n % 2 == 0;
+            }
+
+                static int Count(int[] numbers,Judgement judge) {
                 var count = 0;
 
-                foreach (var n in numbers) {
-                    if (n == num) {
+                    foreach (var n in numbers) {
+                        if (judge(n)  == true) {
                         count++;
+                        }
                     }
-                }
 
                 return count;
 
 
-            }
+                }
     }
 }
