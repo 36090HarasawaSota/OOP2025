@@ -2,28 +2,28 @@
 
 namespace Section01 {
     internal class Program {
-            
-        static void Main(string[] args) { 
-           // Console.WriteLine("カウントしたい数字");
-           //int num = int.Parse(Console.ReadLine());
-           
-            var numbers = new[] { 5, 3, 9, 6, 7, 5, 8, 1, 0, 5, 10, };
 
-            Console.WriteLine(Count(numbers,n => 5 <= n && n < 10 )); //n => n > nが５以上かつ１０未満の時だけtrue
-                                                                      // => ラムダ演算子
+        static void Main(string[] args) {
+            var cities = new List<string> { 
+            "Tokyo",
+            "New Delhi",
+            "Bangkok",
+            "London",
+            "Paris",
+            "Berlin",
+            "Canberra",
+            "Hong Kong",
+            };
+
+            //var exists = cities.Exists(s => s[0] == 'P');   //1つ1つリストの中身をsに入れる
+            // Console.WriteLine(exists);
+
+             var lowerList = cities.ConvertAll(s => s.ToUpper()); //条件に合うものを全部渡す 
+            lowerList.ForEach(s => Console.WriteLine(s));
         }
-
-        static int Count(int[] numbers,Predicate<int> judge) {
-                    var count = 0;
-                    foreach (var n in numbers) {
-                    //引数で受け取ったメソッドを呼び出す   
-                    if (judge(n)  == true) {
-                        count++;
-                        }
-                    }
-
-            return count;
-        }
-
     }
 }
+
+// foreach (var s in names) {  foreach リストのやつを入れる
+//    Console.WriteLine(s);
+// }
