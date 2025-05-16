@@ -19,7 +19,7 @@ namespace Section01 {
             // Console.WriteLine(exists);
 
              var lowerList = cities.ConvertAll(s => s.ToUpper()); //条件に合うものを全部渡す 
-            lowerList.ForEach(s => Console.WriteLine(s));
+            lowerList.ForEach(s => Console.WriteLine(s));   //upper 大文字に　Lower 小文字に
         }
     }
 }
