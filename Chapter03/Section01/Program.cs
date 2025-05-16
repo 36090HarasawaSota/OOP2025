@@ -9,11 +9,11 @@ namespace Section01 {
            
             var numbers = new[] { 5, 3, 9, 6, 7, 5, 8, 1, 0, 5, 10, };
 
-            Console.WriteLine(Count(numbers,delegate(int n) { return n % 2 == 0; }));
-            
-            }
-           
-                static int Count(int[] numbers,Predicate<int> judge) {
+            Console.WriteLine(Count(numbers,n => 5 <= n && n < 10 )); //n => n > nが５以上かつ１０未満の時だけtrue
+                                                                      // => ラムダ演算子
+        }
+
+        static int Count(int[] numbers,Predicate<int> judge) {
                     var count = 0;
                     foreach (var n in numbers) {
                     //引数で受け取ったメソッドを呼び出す   
