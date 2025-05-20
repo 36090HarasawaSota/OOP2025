@@ -41,11 +41,13 @@ namespace Exercise02 {
         }
 
         private static void Exercise2_2(List<string> names) {
-            //ヒント
-           // names.Count(ここにラムダ式を記述する)
-         //  int tnumber = names.FindIndex(s => s == &o&);
-          // Console.WriteLine(tnumber);
+                //ヒント
+                int count = names.Count(s => s.Contains("o"));        //.Contains() = ()内のものがあるかチェック
+                Console.WriteLine(count);
+
+                //Console.WriteLine(names.Count(s => s.Contains("o")));
         }
+
 
         private static void Exercise2_3(List<string> names) {
            
