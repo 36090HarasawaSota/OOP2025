@@ -50,11 +50,18 @@ namespace Exercise02 {
 
 
         private static void Exercise2_3(List<string> names) {
-           
+            var selected = names.Where(s => s.Contains("o")).ToArray();
+            foreach (var name in selected) {
+            Console.WriteLine(selected);
+            }    
         }
 
-        private static void Exercise2_4(List<string> names) {
-           
+        private static void Exercise2_4(List<string> names) { var selected = names
+            .Where(s => s.StartsWith("B"))
+            .Select(s => new { s, s.Length });
+            foreach (var date in selected) {
+                Console.WriteLine(date.s + ":" + date.Length + "文字");
+            }
         }
     }
 }
