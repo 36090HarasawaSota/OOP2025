@@ -28,13 +28,20 @@ namespace Exercise01 {
                 Console.WriteLine("存在していません");
             }
         }
+
+
         private static void Exercise2(List<int> numbers) {
-           
+            numbers.ForEach(s =>Console.WriteLine( s / 2.0)); 
         }
 
+
         private static void Exercise3(List<int> numbers) {
-         
+            var low_number = numbers.Where(s => s <= 50);
+            foreach(var a in low_number) {
+                Console.WriteLine(a);
+            }
         }
+
 
         private static void Exercise4(List<int> numbers) {
          
