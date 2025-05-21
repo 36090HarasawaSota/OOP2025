@@ -44,7 +44,10 @@ namespace Exercise01 {
 
 
         private static void Exercise4(List<int> numbers) {
-         
+            IEnumerable<int> high_number = (IEnumerable<int>)numbers.Select(s => s * 2);
+            foreach(var h in high_number) {
+                Console.WriteLine(h);
+            }
         }
     }
 }
