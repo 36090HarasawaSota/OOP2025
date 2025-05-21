@@ -31,23 +31,28 @@ namespace Exercise01 {
 
 
         private static void Exercise2(List<int> numbers) {
-            numbers.ForEach(s =>Console.WriteLine( s / 2.0)); 
+            numbers.ForEach(s => Console.WriteLine(s / 2.0));
+
+            //foreach(var n in numbers){
+            //Console.WriteLine(n / 2);
+            //}
         }
 
 
         private static void Exercise3(List<int> numbers) {
-            var low_number = numbers.Where(s => s <= 50);
-            foreach(var n in low_number) {
-                Console.WriteLine(n);
-            }
+            numbers.Where(n => n >= 50).ToList().ForEach(n=> Console.WriteLine(n)); //リストがIEnumerableになってリストになってForEachを実行
+
+            //foreach(var num in numbers.Where(n => n >= 50)){
+            //Console.WriteLine(num);
+            //}
         }
 
 
         private static void Exercise4(List<int> numbers) {
-            IEnumerable<int> high_number = (IEnumerable<int>)numbers.Select(s => s * 2);
-            foreach(var h in high_number) {
-                Console.WriteLine(h);
-            }
+            numbers.Select(n => n * 2).ToList().ForEach(Console.WriteLine);
         }
+
+
+    }
     }
 }
