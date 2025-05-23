@@ -12,6 +12,12 @@ namespace Exercise01 {
             Exercise2(langs);
             Console.WriteLine("---");
             Exercise3(langs);
+
+            Exercise4_1();
+            Console.WriteLine("---");
+            Exercise4_2();
+            Console.WriteLine("---");
+            Exercise4_3();
         }
 
         private static void Exercise1(List<string> langs) {
@@ -54,24 +60,31 @@ namespace Exercise01 {
         }
 
 
-        private static void Exercise1() {
+        private static void Exercise4_1() {
             var line = Console.ReadLine();
-            if (int.TryParse(line,out int tline)) { }
+            if (int.TryParse(line, out int tline)) { }
 
             if (tline < 0) {
                 Console.WriteLine(tline);
-            } else if(tline < 100){
+            } else if (tline < 100) {
                 Console.WriteLine(tline * 2);
-            } else if(tline < 500){
+            } else if (tline < 500) {
                 Console.WriteLine(tline * 3);
-            } else if (){
+            } else if (true) {
                 Console.WriteLine(line);
             } else {
-
+                Console.WriteLine("入力に誤りがあります");
             }
 
 
         }
+
+        private static void Exercise4_2() {
+        }
+
+        private static void Exercise4_3() {
+        }
+
 
 
     }
