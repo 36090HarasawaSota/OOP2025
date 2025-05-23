@@ -15,28 +15,28 @@ namespace Exercise01 {
         }
 
         private static void Exercise1(List<string> langs) {
-                foreach (var s in langs) {
-                    if (s.Contains("S")) {
-                        Console.WriteLine(s);
-                    }
+            foreach (var s in langs) {
+                if (s.Contains("S")) {
+                    Console.WriteLine(s);
                 }
-                Console.WriteLine("");
+            }
+            Console.WriteLine("");
 
-                for (int i = 0; i < langs.Count; i++) {
-                    if (langs[i].Contains("S")) {
+            for (int i = 0; i < langs.Count; i++) {
+                if (langs[i].Contains("S")) {
                     Console.WriteLine(langs[i]);
-                    }
                 }
-                Console.WriteLine("");
+            }
+            Console.WriteLine("");
 
-                int index = 0;
-                while (index < langs.Count) {
-                    if (langs[index].Contains("S")) {
-                        Console.WriteLine(langs[index]);
-                    }
-                index++;
+            int index = 0;
+            while (index < langs.Count) {
+                if (langs[index].Contains("S")) {
+                    Console.WriteLine(langs[index]);
                 }
-                Console.WriteLine("");
+                index++;
+            }
+            Console.WriteLine("");
         }
 
         private static void Exercise2(List<string> langs) {
@@ -48,8 +48,32 @@ namespace Exercise01 {
 
         private static void Exercise3(List<string> langs) {
             var lang = langs.Find(s => s.Length == 10);
-               Console.WriteLine(lang ?? "unkonown");
-            }
+            Console.WriteLine(lang ?? "unkonown");
+
+            //Console.WriteLine(langs.Find(s => s.Length == 10) ?? "unkonown");
         }
+
+
+        private static void Exercise1() {
+            var line = Console.ReadLine();
+            if (int.TryParse(line,out int tline)) { }
+
+            if (tline < 0) {
+                Console.WriteLine(tline);
+            } else if(tline < 100){
+                Console.WriteLine(tline * 2);
+            } else if(tline < 500){
+                Console.WriteLine(tline * 3);
+            } else if (){
+                Console.WriteLine(line);
+            } else {
+
+            }
+
+
+        }
+
+
     }
+}
 
