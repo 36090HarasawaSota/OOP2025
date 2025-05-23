@@ -1,4 +1,5 @@
-﻿using System.Dynamic;
+﻿using Section04.SalesCalculator;
+using System.Dynamic;
 
 //nullの設定
 
@@ -16,11 +17,11 @@ Console.WriteLine(message);
 //    Amount = 523100,
 //};
 
-Sale? sale = null;
+//Sale? sale = null;
 
-int? amount = Sale?.Amount;
+//int? amount = Sale?.Amount;
 
-Console.WriteLine(amount);
+//Console.WriteLine(amount);
 
 #endregion
 

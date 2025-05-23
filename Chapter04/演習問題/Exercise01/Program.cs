@@ -15,10 +15,35 @@ namespace Exercise01 {
         }
 
         private static void Exercise1(List<string> langs) {
+                foreach (var s in langs) {
+                    if (s.Contains("S")) {
+                        Console.WriteLine(s);
+                    }
+                }
+                Console.WriteLine("");
 
+                for (int i = 0; i < langs.Count; i++) {
+                    if (langs[i].Contains("S")) {
+                    Console.WriteLine(langs[i]);
+                    }
+                }
+                Console.WriteLine("");
+
+                int index = 0;
+                while (index < langs.Count) {
+                    if (langs[index].Contains("S")) {
+                        Console.WriteLine(langs[index]);
+                    }
+                index++;
+                }
+                Console.WriteLine("");
         }
+
         private static void Exercise2(List<string> langs) {
-           
+            var selected = langs.Where(s => s.Contains("S")).ToList();
+            foreach (var s in selected) {
+                Console.WriteLine(s);
+            }
         }
 
         private static void Exercise3(List<string> langs) {
