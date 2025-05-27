@@ -38,17 +38,11 @@ namespace Exercise07 {
                 
         private static void Exercise3(int[] numbers) {
 
-                foreach (var n in numbers) {
-                
-                if (n.ToString().Length == 1) {
-                    Console.WriteLine("00" + n); 
-                } else if (n.ToString().Length == 2) {
-                    Console.WriteLine("0" + n);  
-                } else {
-                    Console.WriteLine(n); 
-                }
+            var strs = numbers.Select(n => n.ToString("000"));
+            foreach (var s in strs) {
+                Console.WriteLine(s);
             }
-
+            
         }
 
         private static void Exercise4(int[] numbers) {
