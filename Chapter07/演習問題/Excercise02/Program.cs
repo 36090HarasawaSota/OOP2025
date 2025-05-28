@@ -54,13 +54,13 @@ namespace Exercise02 {
         }
 
         private static void Exercise4(List<Book> books) {
-            foreach(var n in books.FirstOrDefault(n => n.Price >= 4000)){
+           books.FirstOrDefault(n => n.Price >= 4000);
 
-            }
+           
         }
 
         private static void Exercise5(List<Book> books) {
-
+            Console.WriteLine(books.Where(n=> n.Price <= 4000).Max(n=> n.Pages));
         }
 
         private static void Exercise6(List<Book> books) {
