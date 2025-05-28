@@ -50,7 +50,7 @@ namespace Exercise02 {
         }
 
         private static void Exercise3(List<Book> books) {
-            Console.WriteLine(books.Where(n => n.Title.Contains("C#")).Average(n => n.Pages));
+            Console.WriteLine((int)books.Where(n => n.Title.Contains("C#")).Average(n => n.Pages));
         }
 
         private static void Exercise4(List<Book> books) {
@@ -72,7 +72,10 @@ namespace Exercise02 {
         }
 
         private static void Exercise7(List<Book> books) {
-            books.Where(n=> n.c);
+           var book = books.Where(n=> n.Pages <= 500 && n.Title.Contains("C#"));
+            foreach (var n in book) {
+                Console.WriteLine(n.Title);
+            }
         }
 
 
