@@ -54,18 +54,22 @@ namespace Exercise02 {
         }
 
         private static void Exercise4(List<Book> books) {
-           var n = books.FirstOrDefault(n => n.Price >= 4000);
-            Console.WriteLine(n.Title);
-
-           
+           var n = books.FirstOrDefault(n => n.Price >= 4000);   //.FirstOrDefault　＝　whereの最初だけ版
+            if (n is not null)
+                Console.WriteLine(n);
+  
         }
 
         private static void Exercise5(List<Book> books) {
-            Console.WriteLine(books.Where(n=> n.Price <= 4000).Max(n=> n.Pages));
+            Console.WriteLine(books
+                .Where(n=> n.Price < 4000)
+                .Max(n=> n.Pages));
         }
 
         private static void Exercise6(List<Book> books) {
-            var titless = books.Where(n=> n.Pages <= 400).OrderByDescending(n=> n.Price);
+            var titless = books
+                .Where(n=> n.Pages <= 400)
+                .OrderByDescending(n=> n.Price);                //OrderByDescending = 降順に整列   
             foreach (var n in titless) {
                 Console.WriteLine(n.Title +": " + n.Price);
             }
