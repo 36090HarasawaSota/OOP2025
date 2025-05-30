@@ -45,7 +45,7 @@ namespace Exercise {
             var words = text.Split(' ');
             var word = words.Where(c=> c.Length <= 4);
             foreach(var n in word){
-                Console.WriteLine(string.Join(",",n));
+                Console.WriteLine(n);
             }
         }
 
