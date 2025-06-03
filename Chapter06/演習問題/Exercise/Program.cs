@@ -1,9 +1,10 @@
 ﻿
+using System.Text;
+
 namespace Exercise {
     internal class Program {
         static void Main(string[] args) {
             var text = "Jackdaws love my big sphinx of quartz";
-            int i;
             Console.WriteLine("6.3.1");
             Exercise1(text);
 
@@ -32,7 +33,13 @@ namespace Exercise {
         }
 
         private static void Exercise3(string text) {
-            
+            var array = text.Split(' ');
+            var sb = new StringBuilder();
+            foreach (var n in array) {
+                sb.Append(n);
+            }
+            var word = sb.ToString();
+            Console.WriteLine(word);
         }
 
         private static void Exercise4(string text) {
