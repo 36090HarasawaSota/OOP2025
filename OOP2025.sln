@@ -76,7 +76,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "演習問題", "演習問�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise04", "Chapter06\演習問題\Exercise91\Exercise04.csproj", "{69D2522F-017B-49C8-82AE-708C396E91F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise02", "Chapter06\演習問題\Exercise\Exercise02.csproj", "{A7656B80-98B0-4F13-8CF6-A854DC0EFCF1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise03", "Chapter06\演習問題\Exercise\Exercise03.csproj", "{A7656B80-98B0-4F13-8CF6-A854DC0EFCF1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Section03", "Chapter06\Section03\Section03.csproj", "{96C92B92-17D6-4301-897C-1CDDAC3E70B2}"
 EndProject

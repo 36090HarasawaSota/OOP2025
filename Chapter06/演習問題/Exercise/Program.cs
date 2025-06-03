@@ -34,12 +34,13 @@ namespace Exercise {
 
         private static void Exercise3(string text) {
             var array = text.Split(' ');
-            var sb = new StringBuilder();
-            foreach (var n in array) {
-                sb.Append(n);
+            var sb = new StringBuilder();                   //StringBuilderクラスのインスタンス作成
+            sb.Append(array[0]);            　           //空のStringBuilderクラスにarrayの0番目の要素を入れる
+            foreach (var word in array.Skip(1)) {
+                sb.Append(' ');　　　                      //StringBuilderクラスに空白を入れる
+                sb.Append(word);                        //StringBuilderクラスにarrayの2番目からの要素を入れる
             }
-            var word = sb.ToString();
-            Console.WriteLine(word);
+            Console.WriteLine(sb + ".");
         }
 
         private static void Exercise4(string text) {
