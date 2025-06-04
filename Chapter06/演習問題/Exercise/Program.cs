@@ -1,4 +1,5 @@
 ﻿
+using System.Linq;
 using System.Text;
 
 namespace Exercise {
@@ -20,6 +21,17 @@ namespace Exercise {
             Console.WriteLine("6.3.5");
             Exercise5(text);
 
+            Console.WriteLine("6.3.99");
+            Exercise6(text);
+
+        }
+
+        private static void Exercise6(string text) {
+            char str ='a';
+            while (str <= 'z') {
+                Console.WriteLine(str + ":" + text.ToLower().Count(c=> c == str));
+                str++;
+            }
         }
 
         private static void Exercise1(string text) {
