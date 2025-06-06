@@ -11,7 +11,8 @@
             };
 
             Console.WriteLine("5.2.2");
-            Exercise2(ymCollection);
+            var ym = new Exercise02.YearMonth(2005,10);
+            bool ret = ym.Is21Century;
 
             Console.WriteLine("5.2.4");
             Exercise4(ymCollection);
