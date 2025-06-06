@@ -27,11 +27,28 @@ namespace Exercise {
         }
 
         private static void Exercise6(string text) {
-            char str ='a';
-            while (str <= 'z') {
-                Console.WriteLine(str + ":" + text.ToLower().Count(c=> c == str));
-                str++;
+            //アルファベットの数をカウントして表示
+
+            // char str ='a';
+            //while (str <= 'z') {
+            //    Console.WriteLine(str + ":" + text.ToLower().Replace(" ","").Count(c=> c == str));
+            //   str++;
+            //}
+
+            var str = text.ToLower().Replace(" ", "");
+
+
+            var alphDicCount = Enumerable.Range('a', 26)　　 //keyとvalueを２６個ずつ作る　aからz,0から25
+                .ToDictionary(num => ((char)num).ToString(), num => 0);　//アルファベットが数字に代わってしまうので文字に変える　numの初期値を0にする
+
+            foreach (var alph in str) {             //strの要素をalphDicCountにいれる
+                alphDicCount[alph.ToString()]++;
             }
+
+            foreach (var item in alphDicCount) {
+                Console.WriteLine(item.Key + ":" + item.Value);
+            }
+
         }
 
         private static void Exercise1(string text) {
