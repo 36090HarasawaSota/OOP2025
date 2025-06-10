@@ -3,26 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Exercise01 {
     //5.1.1
-    public record YearMonth {
-        public int Year { get; init; }
-        public int Month { get; init; }
-
-        public YearMonth(int year = 0, int month = 0) {
-            Year = year;
-            Month = month;
-        }
+    public record YearMonth (int year, int month){
+        public int Year { get; init; } = year;
+        public int Month { get; init; } = month;
 
         //5.1.2
         public bool Is21Century => 2001 <= Year && Year <= 2100;
 
         //5.1.3
         public YearMonth AddOneMonth() {
-            var newmonth = Month;
-            if (newmonth < 12) {
-                return new YearMonth(newmonth + 1);
+            if (Month < 12) {
+                return new YearMonth(Year, Month + 1);
             } else {
                 return new YearMonth(Year + 1, 1);
             }
