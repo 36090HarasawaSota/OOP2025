@@ -10,7 +10,7 @@ namespace Exercise01{
         public int Year { get; init; }
         public int Month { get; init; }
 
-        public YearMonth(int year, int month) {
+        public YearMonth(int year = 0, int month = 0) {
             Year = year;
             Month = month;
         }
@@ -24,7 +24,7 @@ namespace Exercise01{
             if (newmonth <= 12) {
                 return new YearMonth(newmonth);
             } else {
-                return new YearMonth(newmonth +1 );
+                return new YearMonth(newmonth = 1);
             }
         }
 
