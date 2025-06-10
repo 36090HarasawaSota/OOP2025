@@ -1,4 +1,7 @@
-﻿namespace Exercise02 {
+﻿
+using Exercise01;
+
+namespace Exercise02 {
     internal class Program {
         static void Main(string[] args) {
             // 5.2.1
@@ -11,8 +14,10 @@
             };
 
             Console.WriteLine("5.2.2");
-            var ym = new Exercise02.YearMonth(2005,10);
-            bool ret = ym.Is21Century;
+            Exercise2(ymCollection);
+
+            Console.WriteLine("5.2.3");
+            FindFirst21C(ymCollection);
 
             Console.WriteLine("5.2.4");
             Exercise4(ymCollection);
@@ -20,6 +25,30 @@
 
             Console.WriteLine("5.2.5");
             Exercise5(ymCollection);
+        }
+
+        private static void Exercise2(YearMonth[] ymCollection) {
+            foreach (var ym in ymCollection) {
+                Console.WriteLine(ym);
+            }
+        }
+
+        private static YearMonth? FindFirst21C(YearMonth[] ymCollection) {
+            foreach (var ym in ymCollection) {
+                if (ym.Is21Century) {
+                    return ym;
+                }
+            }
+            return null;
+
+        }
+
+        private static void Exercise4(YearMonth[] ymCollection) {
+            Console.WriteLine(FindFirst21C(ymCollection).ToString().Substring(0,4));
+        }
+
+        private static void Exercise5(YearMonth[] ymCollection) {
+            
         }
     }
 }
