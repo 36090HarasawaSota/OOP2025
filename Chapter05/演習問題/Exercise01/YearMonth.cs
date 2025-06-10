@@ -24,7 +24,7 @@ namespace Exercise01{
             if (newmonth <= 12) {
                 return new YearMonth(newmonth);
             } else {
-                return new YearMonth(newmonth = 1);
+                return new YearMonth(Year,1);
             }
         }
 
