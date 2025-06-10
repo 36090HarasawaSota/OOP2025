@@ -44,7 +44,7 @@ namespace Exercise02 {
         }
 
         private static void Exercise4(YearMonth[] ymCollection) {
-            var year = FindFirst21C(ymCollection).ToString().Substring(0,4);
+            var year = FindFirst21C(ymCollection)?.ToString().Substring(0,4);
             if (year is not null) {
                 Console.WriteLine(year);
             } else {
@@ -52,8 +52,13 @@ namespace Exercise02 {
             }
         }
 
+        //null合体演算子 ??   null条件演算子 ?     nullにtostring()を実行したらエラーになる　だから?で対応
+        //Console.WriteLine(FindFirst21C(ymCollection)?.ToString()?? "21世紀のデータはありません");
+
+
         private static void Exercise5(YearMonth[] ymCollection) {
-            
+            var array = ymCollection.Select(ym => ym.AddOneMonth());
+            Console.WriteLine(array);
         }
     }
 }
