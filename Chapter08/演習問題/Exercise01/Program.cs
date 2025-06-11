@@ -29,7 +29,19 @@ namespace Exercise01 {
 
 
         private static void Exercise2(string text) {
-         
+            var numcount = new  SortedDictionary<char, int>();  //後からこれに追加した際、勝手に昇順にしてくれる
+            foreach (var item in text.ToUpper()) {
+                if ('A' <= item && item <= 'Z') {
+                    if (numcount.ContainsKey(item)) {
+                        numcount[item] += 1;
+                    } else {
+                        numcount.Add(item, 1);
+                    }
+                }
+            }
+            foreach (var num in numcount) {
+                Console.WriteLine($"{num.Key}: {num.Value}");
+            }
         }
     }
 }
