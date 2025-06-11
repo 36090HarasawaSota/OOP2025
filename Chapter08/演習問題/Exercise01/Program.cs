@@ -13,7 +13,7 @@ namespace Exercise01 {
 
         private static void Exercise1(string text) {
             var numcount = new Dictionary<char, int>();
-            foreach (var item in text.ToUpper().OrderBy(n=> text)) {
+            foreach (var item in text.ToUpper()) {
                 if('A' <= item && item <= 'Z'){
                     if (numcount.ContainsKey(item)) {
                         numcount[item] += 1;
@@ -22,7 +22,7 @@ namespace Exercise01 {
                     }
                 }
             }
-            foreach (var num in numcount) {
+            foreach (var num in numcount.OrderBy(n => n.Key)){
                 Console.WriteLine($"{num.Key}: {num.Value}");
             }
         }
