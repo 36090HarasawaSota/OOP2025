@@ -16,9 +16,9 @@ namespace Exercise01 {
             foreach (var item in text.ToUpper()) {
                 if('A' <= item && item <= 'Z'){
                     if (numcount.ContainsKey(item)) {
-                        numcount[item] += 1;
+                        numcount[item]++;
                     } else {
-                        numcount.Add(item, 1);
+                        numcount[item] = 1;
                     }
                 }
             }
@@ -33,9 +33,9 @@ namespace Exercise01 {
             foreach (var item in text.ToUpper()) {
                 if ('A' <= item && item <= 'Z') {
                     if (numcount.ContainsKey(item)) {
-                        numcount[item] += 1;
+                        numcount[item] ++;
                     } else {
-                        numcount.Add(item, 1);
+                        numcount[item] = 1;
                     }
                 }
             }
