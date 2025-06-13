@@ -1,6 +1,13 @@
 ﻿namespace PrefCapitalLocationSystem {
         internal class Program {
             static private Dictionary<string, string> prefOfficeDict = new Dictionary<string, string>();
+            //列挙型
+            public enum SelectMenu {
+            Alldisp = 1,
+            Search = 2,
+            Exit = 9
+            }
+
 
         static void Main(string[] args) {
             String? pref, prefCaptalLocation;
@@ -40,33 +47,29 @@
                 Console.WriteLine();//改行
             }
                 Boolean endFlag = false;    //終了フラグ（無限ループを抜け出す用）
-                while (!endFlag) {
-                    switch (menuDisp()) {
-                        case "1":                        //一覧出力処理
-                            allDisp();
-                            break;
-
-
-                        case "2"://検索処理
-                            searchPrefCaptalLocation();
-                            break;
-
-
-                        case "9"://無限ループを抜ける
-                            endFlag = true;
-                            break;
-                    }
+            while (!endFlag) {
+                switch (menuDisp()) {
+                    case SelectMenu.Alldisp: //一覧出力処理
+                        allDisp();
+                        break;
+                    case SelectMenu.Search: //検索処理
+                        searchPrefCaptalLocation();
+                        break;
+                    case SelectMenu.Exit: //無限ループを抜ける
+                        endFlag = true;
+                        break;
                 }
             }
+        }
 
-            //メニュー表示
-            private static string? menuDisp() {
+        //メニュー表示
+        private static SelectMenu menuDisp() {
                 Console.WriteLine("\n**** メニュー ****");
                 Console.WriteLine("1：一覧表示");
                 Console.WriteLine("2：検索");
                 Console.WriteLine("9：終了");
                 Console.Write(">");
-                var menuSelect = Console.ReadLine();
+                var menuSelect = (SelectMenu)int.Parse(Console.ReadLine());
                 return menuSelect;
             }
 
@@ -87,7 +90,7 @@
                 if (searchPref is null) return;
             Console.WriteLine(searchPref + "の県庁所在地は" + prefOfficeDict[searchPref]);
         }
-        
-        }
 
     }
+
+}
