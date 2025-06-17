@@ -23,6 +23,9 @@
             }
             Console.WriteLine();
 
+            //8.2.4
+            var query = abbrs.GetAll().Where(x=> x.Key.Length == 3);
+
             // ToAbbreviationメソッドの利用例
             var japanese = "東南アジア諸国連合";
             var abbreviation = abbrs.ToAbbreviation(japanese);
