@@ -4,29 +4,26 @@
 
         // コンストラクタ
         public ScoreCounter(string filePath) {
-            GetPerStudentScore();
+            //_sales = ReadScore(filePath);
 
         }
 
         //メソッドの概要： 
-        private static IEnumerable<Student> ReadScore(string filePath) {
-            //売り上げデータを入れるリストオブジェクトを生成
-            var sales = new List<Student>();
-            //ファイルを一気に読み込み
-            var lines = File.ReadAllLines(filePath);
-            //読み込んだ行数分繰り返し
-            foreach (var line in lines) {
-                var items = line.Split(',');
-                //Saleオブジェクトを生成
-                var sale = new Student() {
-                    Name = items[0],
-                    Subject = items[1],
-                    Score = items[2]
-                };
-                sales.Add(sale);
-            }
-                return sales;
-        }
+        //private static IEnumerable<Student> ReadScore(string filePath) {
+         //   var sales = new List<Student>();
+         //   var lines = File.ReadAllLines(filePath);
+         //
+         //   foreach (var line in lines) {
+          //      var items = line.Split(',');
+          //      var Score = new Student() {
+          //          Name = items[0],
+          //          Subject = items[1],
+          //          Score = items[2]
+           //     };
+            //    sales.Add(Score);
+           // }
+           //     return sales;
+        //}
       
         
 
