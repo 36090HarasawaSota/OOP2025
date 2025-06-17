@@ -1,8 +1,11 @@
 ﻿namespace Exercise02 {
     internal class Program {
         static void Main(string[] args) {
+
+            Abbreviations abbre = new Abbreviations();
             // コンストラクタの呼び出し
             var abbrs = new Abbreviations();
+            var count = abbre.Count;
 
             // Addメソッドの呼び出し例
             abbrs.Add("IOC", "国際オリンピック委員会");
@@ -34,6 +37,7 @@
             foreach (var (key, value) in abbrs.FindAll("国際")) {
                 Console.WriteLine($"{key}={value}");
             }
+
             Console.WriteLine();
         }
     }

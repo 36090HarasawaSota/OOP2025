@@ -31,4 +31,7 @@ public class Abbreviations {
             }
         }
     }
+
+    //8.2
+    public int Count => _dict.Count(); 
 }
