@@ -78,21 +78,14 @@ namespace Test02 {
         }
         //問題４　10以上50以下の数字のみを表示（即時実行でも可とする）
         //　　　　出力結果【12 14 20 40 35 31 17 48】
-        private static void Exercise04(int[] numbers) => 
+        private static void Exercise04(int[] numbers) { }
 
         //問題５　Countメソッドを使い、小文字の'n'が含まれている都市名がいくつあるかカウントして結果を表示
         //　　　　出力結果【5】
-        private static void Exercise05(List<string> cities) {
-            
-
-        }
-
+        private static void Exercise05(List<string> cities) => Console.WriteLine(cities.Count(x => x == "n"));
         //問題６　全都市数
         //　　　　出力結果【8】
-        private static void Exercise06(List<string> cities) {
-            
-
-        }
+        private static void Exercise06(List<string> cities) =>
 
         //問題７　各都市名をアルファベット順（昇順）に出力
         //　　　　出力結果
