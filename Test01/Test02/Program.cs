@@ -32,7 +32,7 @@ namespace Test02 {
             Console.WriteLine("\n-----");
 
             Console.WriteLine("問題６：全都市数");
-            Exercise06(cities);
+            //Exercise06(cities);
             Console.WriteLine("\n-----");
 
             Console.WriteLine("問題７：各都市をアルファベット順（昇順）に出力");
@@ -85,7 +85,7 @@ namespace Test02 {
         private static void Exercise05(List<string> cities) => Console.WriteLine(cities.Count(x => x == "n"));
         //問題６　全都市数
         //　　　　出力結果【8】
-        private static void Exercise06(List<string> cities) =>
+        //private static void Exercise06(List<string> cities) =>
 
         //問題７　各都市名をアルファベット順（昇順）に出力
         //　　　　出力結果

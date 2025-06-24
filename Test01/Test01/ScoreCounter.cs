@@ -4,7 +4,7 @@
 
         // コンストラクタ
         public ScoreCounter(string filePath) {
-            //return ReadScore(filePath);
+            _score = ReadScore(filePath);
 
         }
 
@@ -18,7 +18,7 @@
                 var Score = new Student() {
                     Name = items[0],
                     Subject = items[1],
-                   Score = items[2]
+                   Score = int.Parse(items[2])
                };
               sales.Add(Score);
             }
