@@ -45,8 +45,12 @@ namespace Exercise02 {
 
         // 9.2.2【ここにプログラムを作成する】
         static int GetAge(DateOnly birthday, DateOnly targetDay) {
-         return targetDay.Year - birthday.Year;
         
+            var nennrei = targetDay.Year - birthday.Year;
+            if (targetDay.Day < birthday.Day) {
+                nennrei -- ;
+            }
+            return nennrei;
 
         }
     }
