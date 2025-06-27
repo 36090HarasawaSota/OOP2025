@@ -1,53 +1,74 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 
 namespace Section01 {
     internal class Program {
         static void Main(string[] args) {
 
             //var today = new DateTime(2025,7,12); //日付
-            //var now = DateTime.Now; //日付と時刻
+            //var now = DateTime.Now;     //日付と時刻
 
-            //Console.WriteLine($"today:{today.Month}");
-            //Console.WriteLine($"now:{now}");
+            //Console.WriteLine($"Today:{today.Month}");
+            //Console.WriteLine($"Now:{now}");
 
-            //自分の生年月日は何曜日かをプログラムで
-            Console.WriteLine("日付を入力");
-            Console.WriteLine();
-
-            Console.Write("西暦:");
+            //①自分の生年月日は何曜日かをプログラムを書いて調べる
+            Console.Write("西暦：");
             var year = int.Parse(Console.ReadLine());
-            Console.Write("月:");
+            Console.Write("月：");
             var month = int.Parse(Console.ReadLine());
-            Console.Write("日付:");
+            Console.Write("日：");
             var day = int.Parse(Console.ReadLine());
 
             var birth = new DateTime(year, month, day);
 
-            var culture = new CultureInfo("ja-jp");
+
+            var culture = new CultureInfo("ja-JP");
             culture.DateTimeFormat.Calendar = new JapaneseCalendar();
 
             var str = birth.ToString("ggyy年M月d日", culture);
             var shortDayOfWeek = culture.DateTimeFormat.GetShortestDayName(birth.DayOfWeek);
-            
-            Console.WriteLine(str + birth.ToString("曜日",culture));
 
-            //③生まれてから〇〇〇日目です
-            TimeSpan diff = DateTime.Today - birth;
-            Console.WriteLine($"あなたは生まれてから{diff.TotalDays}日目です");
+            //Console.WriteLine(str + shortDayOfWeek + "曜日");
+            Console.WriteLine(str + birth.ToString("ddd曜日", culture));
 
-            //④あなたは〇〇才です
+            //③生まれてから〇〇〇〇日目です
+
+            TimeSpan diff;
+            diff = DateTime.Now - birth;
+            Console.Write($"\r{diff.TotalDays}日"); //生まれてからの日数
+
+
+            //④あなたは〇〇歳です！
+
             int age = GetAge(birth, DateTime.Today);
-            Console.WriteLine($"あなたは{age + "歳"}です");
 
-            //⑤１月１日から何日目です
+            Console.WriteLine(age + "歳");
+
+            //⑤1月1日から何日目か？
             var today = DateTime.Today;
-            var dayOfyear = today.DayOfYear;
-            Console.WriteLine(dayOfyear);
-        }
+            int dayOfYear = today.DayOfYear;
+            Console.WriteLine(dayOfYear);
 
-        private static int GetAge(DateTime birth, DateTime today) {
-            var age = today.Year - birth.Year;
+
+
+            //②うるう年の判定プログラムを作成する(P198)
+            //西暦を入力
+            var now = int.Parse(Console.ReadLine());
+            var isLeapYear = DateTime.IsLeapYear(now);
+            //  →〇〇〇〇年はうるう年です
+            if (isLeapYear) {
+                Console.WriteLine("うるう年です");
+                //  →〇〇〇〇年は平年です
+            } else {
+                Console.WriteLine(now + "年は平成です");
+            }
+
+
+        }
+        static int GetAge(DateTime birthday, DateTime targetDay) {
+            var age = targetDay.Year - birthday.Year;
+            if (targetDay < birthday.AddYears(age)) {
+                age--;
+            }
             return age;
         }
     }
