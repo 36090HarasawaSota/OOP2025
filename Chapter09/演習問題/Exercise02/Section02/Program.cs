@@ -10,7 +10,7 @@ namespace Exercise02 {
         }
         // 9.2.1を呼び出すテスト用メソッド
         private static void Exercise1_1() {
-            var dt = new DateTime(2024, 7, 1);
+            var dt = DateTime.Today;
             foreach (var dayofweek in Enum.GetValues(typeof(DayOfWeek))) {
                 Console.Write("{0:yyyy/MM/dd}の次週の{1}: ", dt, (DayOfWeek)dayofweek);
                 Console.WriteLine("{0:yyyy/MM/dd(ddd)}", NextWeek(dt, (DayOfWeek)dayofweek));
@@ -19,7 +19,7 @@ namespace Exercise02 {
 
         // 9.2.1を呼び出すテスト用メソッド
         private static void Exercise1_2() {
-            var dt = new DateTime(2024, 8, 29);
+            var dt = new DateTime(2024,12,29);
             foreach (var dayofweek in Enum.GetValues(typeof(DayOfWeek))) {
                 Console.Write("{0:yyyy/MM/dd}の次週の{1}: ", dt, (DayOfWeek)dayofweek);
                 Console.WriteLine("{0:yyyy/MM/dd(ddd)}", NextWeek(dt, (DayOfWeek)dayofweek));
@@ -27,13 +27,11 @@ namespace Exercise02 {
         }
 
         // 9.2.1【ここにプログラムを作成する】
+        //来週の曜日と日付をだす
         static DateTime NextWeek(DateTime date, DayOfWeek dayOfWeek) {
-            var days = (int)dayOfWeek - (int)(date.DayOfWeek);
-            if(days <= 0) {
-                days += 7;
-            }
-            return date.AddDays(days);
-
+            var nextweek = date.AddDays(7);
+            var days = 7 - (int)dayOfWeek + (int)(date.DayOfWeek);
+            return nextweek.AddDays(days);
         }
 
         private static void Exercise2() {
@@ -45,12 +43,12 @@ namespace Exercise02 {
 
         // 9.2.2【ここにプログラムを作成する】
         static int GetAge(DateOnly birthday, DateOnly targetDay) {
-        
-            var nennrei = targetDay.Year - birthday.Year;
-            if (targetDay.Day < birthday.Day) {
-                nennrei -- ;
+
+            var age = targetDay.Year - birthday.Year;
+            if (targetDay < birthday.AddYears(age)) {
+                age -- ;
             }
-            return nennrei;
+            return age;
 
         }
     }
