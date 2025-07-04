@@ -50,7 +50,7 @@
             btRecordModify = new Button();
             btRecordDelete = new Button();
             ofdPicFileOpen = new OpenFileDialog();
-            button1 = new Button();
+            btNewRecord = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvRecord).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbPicture).BeginInit();
@@ -218,7 +218,6 @@
             Mh.TabStop = true;
             Mh.Text = "日産";
             Mh.UseVisualStyleBackColor = true;
-            Mh.CheckedChanged += Mh_CheckedChanged;
             // 
             // Dh
             // 
@@ -239,7 +238,6 @@
             cbCarName.Name = "cbCarName";
             cbCarName.Size = new Size(181, 33);
             cbCarName.TabIndex = 2;
-            cbCarName.SelectedIndexChanged += Cb_SelectedIndexChanged;
             // 
             // dgvRecord
             // 
@@ -346,21 +344,21 @@
             // 
             ofdPicFileOpen.FileName = "openFileDialog1";
             // 
-            // button1
+            // btNewRecord
             // 
-            button1.Location = new Point(433, 35);
-            button1.Name = "button1";
-            button1.Size = new Size(123, 103);
-            button1.TabIndex = 9;
-            button1.Text = "新規衆力";
-            button1.UseVisualStyleBackColor = true;
+            btNewRecord.Location = new Point(433, 35);
+            btNewRecord.Name = "btNewRecord";
+            btNewRecord.Size = new Size(123, 103);
+            btNewRecord.TabIndex = 9;
+            btNewRecord.Text = "新規入力";
+            btNewRecord.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(978, 578);
-            Controls.Add(button1);
+            Controls.Add(btNewRecord);
             Controls.Add(btPicDelete);
             Controls.Add(btRecordDelete);
             Controls.Add(btRecordModify);
@@ -383,6 +381,7 @@
             Controls.Add(label1);
             Name = "Form1";
             Text = "試乗レポート管理システム";
+            Load += Form1_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvRecord).EndInit();
@@ -420,6 +419,6 @@
         private Button btRecordModify;
         private Button btRecordDelete;
         private OpenFileDialog ofdPicFileOpen;
-        private Button button1;
+        private Button btNewRecord;
     }
 }

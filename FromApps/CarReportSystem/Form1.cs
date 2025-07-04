@@ -39,7 +39,7 @@ namespace CarReportSystem {
             }
         }
 
-
+        //追加
         private void btRecordAdd_Click(object sender, EventArgs e) {
             var carReport = new CarReport {
                 Author = cbAuthor.Text,
@@ -82,19 +82,6 @@ namespace CarReportSystem {
         }
 
 
-
-
-        private void Cb_SelectedIndexChanged(object sender, EventArgs e) {
-
-        }
-
-        
-
-        private void Mh_CheckedChanged(object sender, EventArgs e) {
-
-        }
-
-
         private void dgvRecord_Click(object sender, EventArgs e) {
             if (dgvRecord.CurrentRow.Cells is not null) {
                 dateTimePicker1.Value = (DateTime)dgvRecord.CurrentRow.Cells["Date"].Value;
@@ -133,25 +120,39 @@ namespace CarReportSystem {
                     RdOther.Checked = true;
                     break;
 
-
-
-
-
-
             }
         }
 
-        //新規追加
+        //新規入力
         private void btNewRecord_Click(object sender, EventArgs e) {
-
+            InputItemsAllClear();
         }
 
         //削除
         private void btRecordDelete_Click(object sender, EventArgs e) {
+            if (dgvRecord.CurrentRow is not null) {
+                //選択されているインデックスを取得
+                int index = dgvRecord.CurrentRow.Index;
+                //削除したいインデックスを指定してリストから削除
+                listCarReports.RemoveAt(index);
+            }
+        //listCarReports.Clear();
 
         }
+
         //修正
         private void btRecordModify_Click(object sender, EventArgs e) {
+            listCarReports[dgvRecord.CurrentRow.Index].Author = cbAuthor.Text;
+            listCarReports[dgvRecord.CurrentRow.Index].CarName = cbCarName.Text;
+            listCarReports[dgvRecord.CurrentRow.Index].Picture = pbPicture.Image;
+            listCarReports[dgvRecord.CurrentRow.Index].Date = dateTimePicker1.Value;
+            listCarReports[dgvRecord.CurrentRow.Index].Report = tbReport.Text;
+            listCarReports[dgvRecord.CurrentRow.Index].Maker = Makerselect();
+            dgvRecord.Refresh();　　//データグリッドビューの取得
+        }
+
+
+        private void Form1_Load(object sender, EventArgs e) {
 
         }
     }
