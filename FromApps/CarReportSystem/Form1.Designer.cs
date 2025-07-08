@@ -51,9 +51,25 @@
             btRecordDelete = new Button();
             ofdPicFileOpen = new OpenFileDialog();
             btNewRecord = new Button();
+            tsslbMessage = new StatusStrip();
+            tsslb = new ToolStripStatusLabel();
+            menuStrip1 = new MenuStrip();
+            ファイルFToolStripMenuItem = new ToolStripMenuItem();
+            開くToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator1 = new ToolStripSeparator();
+            保存ToolStripMenuItem = new ToolStripMenuItem();
+            色設定ToolStripMenuItem = new ToolStripMenuItem();
+            tsmiExit = new ToolStripMenuItem();
+            ヘルプHToolStripMenuItem = new ToolStripMenuItem();
+            tsmiAbout = new ToolStripMenuItem();
+            cdColor = new ColorDialog();
+            sfdReportFileSave = new SaveFileDialog();
+            ofdReportFileOpen = new OpenFileDialog();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvRecord).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbPicture).BeginInit();
+            tsslbMessage.SuspendLayout();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -126,7 +142,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Yu Gothic UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            label7.Location = new Point(629, 23);
+            label7.Location = new Point(641, 36);
             label7.Name = "label7";
             label7.RightToLeft = RightToLeft.Yes;
             label7.Size = new Size(62, 32);
@@ -284,9 +300,9 @@
             // 
             btPicOpen.FlatStyle = FlatStyle.Flat;
             btPicOpen.Font = new Font("Yu Gothic UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            btPicOpen.Location = new Point(727, 15);
+            btPicOpen.Location = new Point(709, 25);
             btPicOpen.Name = "btPicOpen";
-            btPicOpen.Size = new Size(91, 53);
+            btPicOpen.Size = new Size(91, 51);
             btPicOpen.TabIndex = 8;
             btPicOpen.Text = "開く...";
             btPicOpen.UseVisualStyleBackColor = true;
@@ -296,9 +312,9 @@
             // 
             btPicDelete.FlatStyle = FlatStyle.Flat;
             btPicDelete.Font = new Font("Yu Gothic UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            btPicDelete.Location = new Point(840, 15);
+            btPicDelete.Location = new Point(821, 25);
             btPicDelete.Name = "btPicDelete";
-            btPicDelete.Size = new Size(88, 53);
+            btPicDelete.Size = new Size(91, 51);
             btPicDelete.TabIndex = 8;
             btPicDelete.Text = "削除";
             btPicDelete.UseVisualStyleBackColor = true;
@@ -353,11 +369,95 @@
             btNewRecord.Text = "新規入力";
             btNewRecord.UseVisualStyleBackColor = true;
             // 
+            // tsslbMessage
+            // 
+            tsslbMessage.Items.AddRange(new ToolStripItem[] { tsslb });
+            tsslbMessage.Location = new Point(0, 556);
+            tsslbMessage.Name = "tsslbMessage";
+            tsslbMessage.Size = new Size(978, 22);
+            tsslbMessage.TabIndex = 10;
+            tsslbMessage.Text = "statusStrip1";
+            // 
+            // tsslb
+            // 
+            tsslb.Name = "tsslb";
+            tsslb.Size = new Size(0, 17);
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { ファイルFToolStripMenuItem, ヘルプHToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(978, 24);
+            menuStrip1.TabIndex = 11;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // ファイルFToolStripMenuItem
+            // 
+            ファイルFToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { 開くToolStripMenuItem, toolStripSeparator1, 保存ToolStripMenuItem, 色設定ToolStripMenuItem, tsmiExit });
+            ファイルFToolStripMenuItem.Name = "ファイルFToolStripMenuItem";
+            ファイルFToolStripMenuItem.Size = new Size(25, 20);
+            ファイルFToolStripMenuItem.Text = "..";
+            // 
+            // 開くToolStripMenuItem
+            // 
+            開くToolStripMenuItem.Name = "開くToolStripMenuItem";
+            開くToolStripMenuItem.Size = new Size(180, 22);
+            開くToolStripMenuItem.Text = "開く...";
+            開くToolStripMenuItem.Click += 開くToolStripMenuItem_Click;
+            // 
+            // toolStripSeparator1
+            // 
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(177, 6);
+            // 
+            // 保存ToolStripMenuItem
+            // 
+            保存ToolStripMenuItem.Name = "保存ToolStripMenuItem";
+            保存ToolStripMenuItem.Size = new Size(180, 22);
+            保存ToolStripMenuItem.Text = "保存...";
+            保存ToolStripMenuItem.Click += 保存ToolStripMenuItem_Click;
+            // 
+            // 色設定ToolStripMenuItem
+            // 
+            色設定ToolStripMenuItem.Name = "色設定ToolStripMenuItem";
+            色設定ToolStripMenuItem.Size = new Size(180, 22);
+            色設定ToolStripMenuItem.Text = "色設定...";
+            色設定ToolStripMenuItem.Click += 色設定ToolStripMenuItem_Click;
+            // 
+            // tsmiExit
+            // 
+            tsmiExit.Name = "tsmiExit";
+            tsmiExit.ShortcutKeys = Keys.Alt | Keys.F4;
+            tsmiExit.Size = new Size(180, 22);
+            tsmiExit.Text = "終了...";
+            tsmiExit.Click += tsmiExit_Click;
+            // 
+            // ヘルプHToolStripMenuItem
+            // 
+            ヘルプHToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { tsmiAbout });
+            ヘルプHToolStripMenuItem.Name = "ヘルプHToolStripMenuItem";
+            ヘルプHToolStripMenuItem.Size = new Size(65, 20);
+            ヘルプHToolStripMenuItem.Text = "ヘルプ(&H)";
+            // 
+            // tsmiAbout
+            // 
+            tsmiAbout.Name = "tsmiAbout";
+            tsmiAbout.Size = new Size(167, 22);
+            tsmiAbout.Text = "このアプリについて....";
+            tsmiAbout.Click += tsmiAbout_Click;
+            // 
+            // ofdReportFileOpen
+            // 
+            ofdReportFileOpen.FileName = "openFileDialog1";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(978, 578);
+            Controls.Add(tsslbMessage);
+            Controls.Add(menuStrip1);
             Controls.Add(btNewRecord);
             Controls.Add(btPicDelete);
             Controls.Add(btRecordDelete);
@@ -379,6 +479,7 @@
             Controls.Add(label7);
             Controls.Add(label2);
             Controls.Add(label1);
+            MainMenuStrip = menuStrip1;
             Name = "Form1";
             Text = "試乗レポート管理システム";
             Load += Form1_Load;
@@ -386,6 +487,10 @@
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvRecord).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbPicture).EndInit();
+            tsslbMessage.ResumeLayout(false);
+            tsslbMessage.PerformLayout();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -420,5 +525,19 @@
         private Button btRecordDelete;
         private OpenFileDialog ofdPicFileOpen;
         private Button btNewRecord;
+        private StatusStrip tsslbMessage;
+        private ToolStripStatusLabel tsslb;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem ファイルFToolStripMenuItem;
+        private ToolStripMenuItem 開くToolStripMenuItem;
+        private ToolStripMenuItem ヘルプHToolStripMenuItem;
+        private ToolStripMenuItem tsmiAbout;
+        private ToolStripMenuItem 保存ToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripMenuItem 色設定ToolStripMenuItem;
+        private ToolStripMenuItem tsmiExit;
+        private ColorDialog cdColor;
+        private SaveFileDialog sfdReportFileSave;
+        private OpenFileDialog ofdReportFileOpen;
     }
 }
