@@ -3,6 +3,8 @@ using System.Diagnostics.Metrics;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text.Json;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Serialization;
 using static CarReportSystem.CarReport;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -11,6 +13,9 @@ namespace CarReportSystem {
 
         //カーレポートのデータ管理用リスト
         BindingList<CarReport> listCarReports = new BindingList<CarReport>();
+
+        //設定クラスのインスタンスを生成
+        Settings settings = new Settings();
 
         public Form1() {
             InitializeComponent();
@@ -171,7 +176,29 @@ namespace CarReportSystem {
             dgvRecord.RowsDefaultCellStyle.BackColor = Color.White;
             dgvRecord.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
 
+            //設定ファイルを読み込み背景色を設定する
+            //逆シリアル化
+
+            if (File.Exists("setting.xml")) {
+                try {
+                    using (var reader = XmlReader.Create("setting.xml")) {
+                        var serializer = new XmlSerializer(typeof(Settings));
+                        settings = serializer.Deserialize(reader) as Settings;
+                        BackColor = Color.FromArgb(settings.MainFormBackColor);
+
+                        //設定クラスのインスタンスにも現在の色を設定
+                        //settings.MainFormBackColor = BackColor.ToArgb();
+                    }
+                }
+                catch (Exception ex) {
+                    tsslbMessage.Text = "ファイル読み込みエラー";
+                    MessageBox.Show(ex.Message);
+                }
+            } else {
+                tsslbMessage.Text = "設定ファイルがありません";
+            }
         }
+  
 
 
         private void tsmiExit_Click(object sender, EventArgs e) {
@@ -188,6 +215,9 @@ namespace CarReportSystem {
         private void 色設定ToolStripMenuItem_Click(object sender, EventArgs e) {
             if (cdColor.ShowDialog() == DialogResult.OK) {
                 this.BackColor = cdColor.Color;
+
+                //設定ファイルへ保存
+                settings.MainFormBackColor = cdColor.Color.ToArgb(); //背景色を設定
             }
 
         }
@@ -251,6 +281,16 @@ namespace CarReportSystem {
         private void 開くToolStripMenuItem_Click(object sender, EventArgs e) {
             reportOpenFile();
         }
+
+        //フォームが閉じたら呼ばれる
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e) {
+            //設定ファイルへ色情報を保持する処理
+            using (var writer = XmlWriter.Create("setting.xml")) {
+                var serializer = new XmlSerializer(settings.GetType());
+                serializer.Serialize(writer,settings);
+            }
+        }
+       
     }
 
 }
