@@ -1,6 +1,7 @@
 using System.Net;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using static System.Net.WebRequestMethods;
 
 namespace RssReader {
     public partial class Form1 : Form {
@@ -39,17 +40,14 @@ namespace RssReader {
 
 
         private void lbTitles_SelectedIndexChanged(object sender, EventArgs e) {
-            webView21.Source = new Uri(items[lbTitles.SelectedIndex].Link);
+                webView21.Source = new Uri(items[lbTitles.SelectedIndex].Link ?? "https://www.yahoo.co.jp") ;
         }
 
         private void nextbt_Click(object sender, EventArgs e) {
-            webView21.Source = new Uri(items[lbTitles.SelectedIndex++].Link);
+                webView21.Source = new Uri(items[lbTitles.SelectedIndex++].Link ?? "https://www.yahoo.co.jp");
         }
-
         private void backbt_Click(object sender, EventArgs e) {
-            webView21.Source = new Uri(items[lbTitles.SelectedIndex--].Link);
+                webView21.Source = new Uri(items[lbTitles.SelectedIndex--].Link ?? "https://www.yahoo.co.jp");
         }
-
-
     }
 }

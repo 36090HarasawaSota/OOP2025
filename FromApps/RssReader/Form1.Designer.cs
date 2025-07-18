@@ -35,9 +35,9 @@
             // tbUrl
             // 
             tbUrl.Font = new Font("Yu Gothic UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            tbUrl.Location = new Point(408, 14);
+            tbUrl.Location = new Point(337, 14);
             tbUrl.Name = "tbUrl";
-            tbUrl.Size = new Size(507, 43);
+            tbUrl.Size = new Size(578, 43);
             tbUrl.TabIndex = 0;
             // 
             // btRssGet
@@ -76,7 +76,7 @@
             // 
             // nextbt
             // 
-            nextbt.Location = new Point(246, 12);
+            nextbt.Location = new Point(171, 13);
             nextbt.Name = "nextbt";
             nextbt.Size = new Size(132, 48);
             nextbt.TabIndex = 4;
@@ -86,7 +86,7 @@
             // 
             // backbt
             // 
-            backbt.Location = new Point(74, 14);
+            backbt.Location = new Point(30, 14);
             backbt.Name = "backbt";
             backbt.Size = new Size(122, 47);
             backbt.TabIndex = 5;
