@@ -45,9 +45,11 @@ namespace RssReader {
 
         private void nextbt_Click(object sender, EventArgs e) {
                 webView21.Source = new Uri(items[lbTitles.SelectedIndex++].Link ?? "https://www.yahoo.co.jp");
+                lbTitles.SelectedIndex++;
         }
         private void backbt_Click(object sender, EventArgs e) {
                 webView21.Source = new Uri(items[lbTitles.SelectedIndex--].Link ?? "https://www.yahoo.co.jp");
+                lbTitles.SelectedIndex--;
         }
     }
 }
