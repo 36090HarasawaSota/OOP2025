@@ -26,10 +26,10 @@
             tbUrl = new TextBox();
             btRssGet = new Button();
             lbTitles = new ListBox();
-            webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
+            wbRssLink = new Microsoft.Web.WebView2.WinForms.WebView2();
             nextbt = new Button();
             backbt = new Button();
-            ((System.ComponentModel.ISupportInitialize)webView21).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)wbRssLink).BeginInit();
             SuspendLayout();
             // 
             // tbUrl
@@ -65,14 +65,14 @@
             // 
             // webView21
             // 
-            webView21.AllowExternalDrop = true;
-            webView21.CreationProperties = null;
-            webView21.DefaultBackgroundColor = Color.White;
-            webView21.Location = new Point(568, 66);
-            webView21.Name = "webView21";
-            webView21.Size = new Size(525, 539);
-            webView21.TabIndex = 3;
-            webView21.ZoomFactor = 1D;
+            wbRssLink.AllowExternalDrop = true;
+            wbRssLink.CreationProperties = null;
+            wbRssLink.DefaultBackgroundColor = Color.White;
+            wbRssLink.Location = new Point(568, 66);
+            wbRssLink.Name = "webView21";
+            wbRssLink.Size = new Size(525, 539);
+            wbRssLink.TabIndex = 3;
+            wbRssLink.ZoomFactor = 1D;
             // 
             // nextbt
             // 
@@ -102,13 +102,13 @@
             ClientSize = new Size(1129, 627);
             Controls.Add(backbt);
             Controls.Add(nextbt);
-            Controls.Add(webView21);
+            Controls.Add(wbRssLink);
             Controls.Add(lbTitles);
             Controls.Add(btRssGet);
             Controls.Add(tbUrl);
             Name = "Form1";
             Text = "RssReader";
-            ((System.ComponentModel.ISupportInitialize)webView21).EndInit();
+            ((System.ComponentModel.ISupportInitialize)wbRssLink).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -118,7 +118,7 @@
         private TextBox tbUrl;
         private Button btRssGet;
         private ListBox lbTitles;
-        private Microsoft.Web.WebView2.WinForms.WebView2 webView21;
+        private Microsoft.Web.WebView2.WinForms.WebView2 wbRssLink;
         private Button nextbt;
         private Button backbt;
     }

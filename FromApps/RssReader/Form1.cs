@@ -40,15 +40,15 @@ namespace RssReader {
 
 
         private void lbTitles_SelectedIndexChanged(object sender, EventArgs e) {
-                webView21.Source = new Uri(items[lbTitles.SelectedIndex].Link ?? "https://www.yahoo.co.jp") ;
+                wbRssLink.Source = new Uri(items[lbTitles.SelectedIndex].Link ?? "https://www.yahoo.co.jp") ;
         }
 
         private void nextbt_Click(object sender, EventArgs e) {
-                webView21.Source = new Uri(items[lbTitles.SelectedIndex++].Link ?? "https://www.yahoo.co.jp");
+            wbRssLink.Source = new Uri(items[lbTitles.SelectedIndex +1].Link ?? "https://www.yahoo.co.jp");
                 lbTitles.SelectedIndex++;
         }
         private void backbt_Click(object sender, EventArgs e) {
-                webView21.Source = new Uri(items[lbTitles.SelectedIndex--].Link ?? "https://www.yahoo.co.jp");
+                wbRssLink.Source = new Uri(items[lbTitles.SelectedIndex-1].Link ?? "https://www.yahoo.co.jp");
                 lbTitles.SelectedIndex--;
         }
     }
