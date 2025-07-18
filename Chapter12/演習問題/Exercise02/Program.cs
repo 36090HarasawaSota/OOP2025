@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Exercise02 {
     internal class Program {
@@ -14,7 +15,13 @@ namespace Exercise02 {
         }
 
         static Novelist? Deserialize(string jsonString) {
-
+            var options = new JsonSerializerOptions {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                NumberHandling = JsonNumberHandling.AllowNamedFloatingPointLiterals |
+                                 JsonNumberHandling.AllowReadingFromString
+            };
+            var novelist = JsonSerializer.Deserialize<Novelist>(jsonString, options);
+            return novelist;
         }
     }
 
@@ -23,6 +30,6 @@ namespace Exercise02 {
         public string Name { get; init; } = string.Empty;
         [JsonPropertyName("birth")]
         public DateTime Birthday { get; init; }
-        public string[] Masterpieces { get; init; } = [];
+        public string[] Masterpieces { get; init; } = [];   //空の配列を作成
     }
 }

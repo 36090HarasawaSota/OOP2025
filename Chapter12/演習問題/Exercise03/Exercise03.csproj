@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="novelists.json">
+    <None Update="employees.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

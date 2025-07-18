@@ -31,7 +31,6 @@ namespace Exercise01 {
             ];
             Serialize("employees.json", employees);
 
-
             //問題12.1.3
             var empdata = Deserialize_f("employees.json");
             foreach (var empd in empdata)
@@ -56,30 +55,29 @@ namespace Exercise01 {
             return JsonSerializer.Deserialize<Employee>(text, options);
         }
 
-
-
         //問題12.1.2
         //シリアル化してファイルへ出力する
         static void Serialize(string filePath, IEnumerable<Employee> employees) {
-
             var options = new JsonSerializerOptions {
-                WriteIndented = true,
-                Encoder = JavaScriptEncoder.Create(UnicodeRanges.All),
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                Encoder = JavaScriptEncoder.Create(UnicodeRanges.All),
+                WriteIndented = true
             };
-
-            var jsonString = JsonSerializer.Serialize(employees, options);
-            File.WriteAllText(filePath,jsonString);
-            Console.WriteLine(jsonString);
-
-            //byte[] jsonString = JsonSerializer.SerializeToUtf8Bytes(employees, options);
+            byte[] utf8Bytes = JsonSerializer.SerializeToUtf8Bytes(employees, options);
+            File.WriteAllBytes(filePath, utf8Bytes);
         }
 
         //問題12.1.3
-        //逆シリアル化してファイルへ出力する
+        //逆シリアル化して返却
         static Employee[] Deserialize_f(string filePath) {
+            var options = new JsonSerializerOptions {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                Encoder = JavaScriptEncoder.Create(UnicodeRanges.All),
+                WriteIndented = true
+            };
             var text = File.ReadAllText(filePath);
-            return JsonSerializer.Deserialize<Employee[]>(text);
+            var employees = JsonSerializer.Deserialize<Employee[]>(text, options);
+            return employees ?? [];
         }
 
     }
