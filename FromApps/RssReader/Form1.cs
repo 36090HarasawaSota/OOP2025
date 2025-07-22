@@ -16,7 +16,7 @@ namespace RssReader {
 
             using (var hc = new HttpClient()) {
 
-                string xml = await hc.GetStringAsync(tbUrl.Text);
+                string xml = await hc.GetStringAsync(cburl.Text);
                 XDocument xdoc = XDocument.Parse(xml);
 
                 //RSS‚ð‰ðÍ‚µ‚Ä•K—v‚È—v‘f‚ðŽæ“¾
@@ -33,23 +33,39 @@ namespace RssReader {
                 items.ForEach(item => lbTitles.Items.Add(item.Title));
 
             }
-
+            btGoBack.Enabled = false;
+            btGoFard.Enabled = false;
 
         }
 
 
 
         private void lbTitles_SelectedIndexChanged(object sender, EventArgs e) {
-                wbRssLink.Source = new Uri(items[lbTitles.SelectedIndex].Link ?? "https://www.yahoo.co.jp") ;
+            if (0 <= lbTitles.SelectedIndex) {
+                wbRssLink.Source = new Uri(items[lbTitles.SelectedIndex].Link ?? "https://www.yahoo.co.jp");
+            }
         }
 
-        private void nextbt_Click(object sender, EventArgs e) {
-            wbRssLink.Source = new Uri(items[lbTitles.SelectedIndex +1].Link ?? "https://www.yahoo.co.jp");
-                lbTitles.SelectedIndex++;
+        private void btGoFard_Click(object sender, EventArgs e) {
+
+            wbRssLink.Source = new Uri(items[lbTitles.SelectedIndex + 1].Link);
+            wbRssLink.GoForward();
         }
-        private void backbt_Click(object sender, EventArgs e) {
-                wbRssLink.Source = new Uri(items[lbTitles.SelectedIndex-1].Link ?? "https://www.yahoo.co.jp");
-                lbTitles.SelectedIndex--;
+        private void btGoBack_Click(object sender, EventArgs e) {
+            wbRssLink.Source = new Uri(items[lbTitles.SelectedIndex - 1].Link);
+            wbRssLink.GoBack();
+        }
+
+
+
+
+        private void wbRssLink_SourceChanged(object sender, Microsoft.Web.WebView2.Core.CoreWebView2SourceChangedEventArgs e) {
+            btGoBack.Enabled = wbRssLink.CanGoBack;
+            btGoFard.Enabled = wbRssLink.CanGoForward;
+        }
+
+        private void Registrgt_Click(object sender, EventArgs e) {
+            cburl.Items.Add(tburl.Text);
         }
     }
 }

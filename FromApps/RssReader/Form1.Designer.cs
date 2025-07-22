@@ -23,28 +23,23 @@
         ///  the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            tbUrl = new TextBox();
             btRssGet = new Button();
             lbTitles = new ListBox();
             wbRssLink = new Microsoft.Web.WebView2.WinForms.WebView2();
-            nextbt = new Button();
-            backbt = new Button();
+            btGoBack = new Button();
+            btGoFard = new Button();
+            cburl = new ComboBox();
+            tburl = new TextBox();
+            ourllb = new Label();
+            Registrgt = new Button();
             ((System.ComponentModel.ISupportInitialize)wbRssLink).BeginInit();
             SuspendLayout();
             // 
-            // tbUrl
-            // 
-            tbUrl.Font = new Font("Yu Gothic UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            tbUrl.Location = new Point(337, 14);
-            tbUrl.Name = "tbUrl";
-            tbUrl.Size = new Size(578, 43);
-            tbUrl.TabIndex = 0;
-            // 
             // btRssGet
             // 
-            btRssGet.Location = new Point(938, 10);
+            btRssGet.Location = new Point(923, 12);
             btRssGet.Name = "btRssGet";
-            btRssGet.Size = new Size(145, 50);
+            btRssGet.Size = new Size(152, 49);
             btRssGet.TabIndex = 1;
             btRssGet.Text = "取得";
             btRssGet.UseVisualStyleBackColor = true;
@@ -56,56 +51,96 @@
             lbTitles.Font = new Font("Yu Gothic UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
             lbTitles.FormattingEnabled = true;
             lbTitles.ItemHeight = 25;
-            lbTitles.Location = new Point(21, 76);
+            lbTitles.Location = new Point(35, 151);
             lbTitles.Name = "lbTitles";
-            lbTitles.Size = new Size(504, 529);
+            lbTitles.Size = new Size(479, 454);
             lbTitles.TabIndex = 2;
             lbTitles.Click += lbTitles_SelectedIndexChanged;
             lbTitles.SelectedIndexChanged += lbTitles_SelectedIndexChanged;
             // 
-            // webView21
+            // wbRssLink
             // 
             wbRssLink.AllowExternalDrop = true;
             wbRssLink.CreationProperties = null;
             wbRssLink.DefaultBackgroundColor = Color.White;
-            wbRssLink.Location = new Point(568, 66);
-            wbRssLink.Name = "webView21";
-            wbRssLink.Size = new Size(525, 539);
+            wbRssLink.Location = new Point(550, 151);
+            wbRssLink.Name = "wbRssLink";
+            wbRssLink.Size = new Size(525, 454);
             wbRssLink.TabIndex = 3;
             wbRssLink.ZoomFactor = 1D;
+            wbRssLink.SourceChanged += wbRssLink_SourceChanged;
             // 
-            // nextbt
+            // btGoBack
             // 
-            nextbt.Location = new Point(171, 13);
-            nextbt.Name = "nextbt";
-            nextbt.Size = new Size(132, 48);
-            nextbt.TabIndex = 4;
-            nextbt.Text = "追加";
-            nextbt.UseVisualStyleBackColor = true;
-            nextbt.Click += nextbt_Click;
+            btGoBack.Location = new Point(172, 16);
+            btGoBack.Name = "btGoBack";
+            btGoBack.Size = new Size(132, 48);
+            btGoBack.TabIndex = 4;
+            btGoBack.Text = "進む";
+            btGoBack.UseVisualStyleBackColor = true;
             // 
-            // backbt
+            // btGoFard
             // 
-            backbt.Location = new Point(30, 14);
-            backbt.Name = "backbt";
-            backbt.Size = new Size(122, 47);
-            backbt.TabIndex = 5;
-            backbt.Text = "戻る";
-            backbt.UseVisualStyleBackColor = true;
-            backbt.Click += backbt_Click;
+            btGoFard.Location = new Point(35, 17);
+            btGoFard.Name = "btGoFard";
+            btGoFard.Size = new Size(122, 47);
+            btGoFard.TabIndex = 5;
+            btGoFard.Text = "戻る";
+            btGoFard.UseVisualStyleBackColor = true;
+            // 
+            // cburl
+            // 
+            cburl.Font = new Font("Yu Gothic UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
+            cburl.FormattingEnabled = true;
+            cburl.Location = new Point(323, 16);
+            cburl.Name = "cburl";
+            cburl.Size = new Size(581, 45);
+            cburl.TabIndex = 6;
+            // 
+            // tburl
+            // 
+            tburl.Font = new Font("Yu Gothic UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
+            tburl.Location = new Point(323, 87);
+            tburl.Name = "tburl";
+            tburl.Size = new Size(581, 43);
+            tburl.TabIndex = 7;
+            // 
+            // ourllb
+            // 
+            ourllb.AutoSize = true;
+            ourllb.Font = new Font("Yu Gothic UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
+            ourllb.Location = new Point(123, 87);
+            ourllb.Name = "ourllb";
+            ourllb.Size = new Size(181, 37);
+            ourllb.TabIndex = 8;
+            ourllb.Text = "お気に入りURL";
+            // 
+            // Registrgt
+            // 
+            Registrgt.Font = new Font("Yu Gothic UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 128);
+            Registrgt.Location = new Point(923, 88);
+            Registrgt.Name = "Registrgt";
+            Registrgt.Size = new Size(152, 44);
+            Registrgt.TabIndex = 9;
+            Registrgt.Text = "登録";
+            Registrgt.UseVisualStyleBackColor = true;
+            Registrgt.Click += Registrgt_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(1129, 627);
-            Controls.Add(backbt);
-            Controls.Add(nextbt);
+            ClientSize = new Size(1104, 627);
+            Controls.Add(Registrgt);
+            Controls.Add(ourllb);
+            Controls.Add(tburl);
+            Controls.Add(cburl);
+            Controls.Add(btGoFard);
+            Controls.Add(btGoBack);
             Controls.Add(wbRssLink);
             Controls.Add(lbTitles);
             Controls.Add(btRssGet);
-            Controls.Add(tbUrl);
             Name = "Form1";
             Text = "RssReader";
             ((System.ComponentModel.ISupportInitialize)wbRssLink).EndInit();
@@ -119,7 +154,11 @@
         private Button btRssGet;
         private ListBox lbTitles;
         private Microsoft.Web.WebView2.WinForms.WebView2 wbRssLink;
-        private Button nextbt;
-        private Button backbt;
+        private Button btGoBack;
+        private Button btGoFard;
+        private ComboBox cburl;
+        private TextBox tburl;
+        private Label ourllb;
+        private Button Registrgt;
     }
 }
