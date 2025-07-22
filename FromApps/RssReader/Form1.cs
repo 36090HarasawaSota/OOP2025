@@ -99,6 +99,7 @@ namespace RssReader {
 
 
         private void Registrgt_Click(object sender, EventArgs e) {
+
             cburl.Items.Add(tburl.Text);
             rssurldict.Add(tburl.Text, cburl.Text);
 
