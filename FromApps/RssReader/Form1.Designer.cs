@@ -68,7 +68,7 @@
             wbRssLink.Size = new Size(525, 454);
             wbRssLink.TabIndex = 3;
             wbRssLink.ZoomFactor = 1D;
-            wbRssLink.SourceChanged += wbRssLink_SourceChanged;
+            wbRssLink.SourceChanged += wvRssLink_SourceChanged;
             // 
             // btGoBack
             // 
@@ -145,6 +145,7 @@
             Controls.Add(btRssGet);
             Name = "Form1";
             Text = "RssReader";
+            Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)wbRssLink).EndInit();
             ResumeLayout(false);
             PerformLayout();

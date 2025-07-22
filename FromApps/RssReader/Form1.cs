@@ -5,8 +5,20 @@ using static System.Net.WebRequestMethods;
 
 namespace RssReader {
     public partial class Form1 : Form {
-        Dictionary<string, string> urltitle = new Dictionary<string, string>();
+
         private List<ItemData> items;
+
+        Dictionary<string, string> rssurldict = new Dictionary<string, string>() {
+            {"主要","https://news.yahoo.co.jp/rss/topics/top-picks.xml"},
+            {"国内","https://news.yahoo.co.jp/rss/topics/domestic.xml" },
+            {"国際","https://news.yahoo.co.jp/rss/topics/world.xml" },
+            {"経済","https://news.yahoo.co.jp/rss/topics/business.xml"},
+            { "エンタメ","https://news.yahoo.co.jp/rss/topics/entertainment.xml"},
+            { "スポーツ","https://news.yahoo.co.jp/rss/topics/sports.xml"},
+            {"IT","https://news.yahoo.co.jp/rss/topics/it.xml" },
+            { "科学","https://news.yahoo.co.jp/rss/topics/science.xml"},
+            { "地域","https://news.yahoo.co.jp/rss/topics/local.xml"}
+        };
 
         public Form1() {
             InitializeComponent();
@@ -15,6 +27,29 @@ namespace RssReader {
         private async void btRssGet_Click(object sender, EventArgs e) {
 
             using (var hc = new HttpClient()) {
+
+                if (rssurldict.ContainsKey(cburl.Text)) {
+                    string xml2 = await hc.GetStringAsync(rssurldict[cburl.Text]);
+                    XDocument xdoc2 = XDocument.Parse(xml2);
+
+                    //RSSを解析して必要な要素を取得
+                    items = xdoc2.Root.Descendants("item")
+                        .Select(x =>
+                            new ItemData {
+                                Title = (string?)x.Element("title"),
+                                Link = (string?)x.Element("link"),
+                            }).ToList();
+
+
+                    //リストボックスへタイトルを表示
+                    lbTitles.Items.Clear();
+                    items.ForEach(item => lbTitles.Items.Add(item.Title));
+
+
+                    btGoBack.Enabled = false;
+                    btGoFard.Enabled = false;
+
+                } else {
 
                 string xml = await hc.GetStringAsync(cburl.Text);
                 XDocument xdoc = XDocument.Parse(xml);
@@ -26,7 +61,7 @@ namespace RssReader {
                             Title = (string?)x.Element("title"),
                             Link = (string?)x.Element("link"),
                         }).ToList();
-
+                }
 
                 //リストボックスへタイトルを表示
                 lbTitles.Items.Clear();
@@ -36,9 +71,8 @@ namespace RssReader {
             btGoBack.Enabled = false;
             btGoFard.Enabled = false;
 
-            cburl.Items.Add(cburl.Text);
-        }
 
+        }
 
 
         private void lbTitles_SelectedIndexChanged(object sender, EventArgs e) {
@@ -48,27 +82,43 @@ namespace RssReader {
         }
 
         private void btGoFard_Click(object sender, EventArgs e) {
-            wbRssLink.Source = new Uri(items[lbTitles.SelectedIndex + 1].Link);
-            lbTitles.SelectedIndex++;
+            wbRssLink.GoForward();
         }
         private void btGoBack_Click(object sender, EventArgs e) {
-            wbRssLink.Source = new Uri(items[lbTitles.SelectedIndex - 1].Link);
-            lbTitles.SelectedIndex--;
+            wbRssLink.GoBack();
         }
 
+        private void wvRssLink_SourceChanged(object sender, Microsoft.Web.WebView2.Core.CoreWebView2SourceChangedEventArgs e) {
+            GoForWardBtEnablset();
+        }
 
-
-
-        private void wbRssLink_SourceChanged(object sender, Microsoft.Web.WebView2.Core.CoreWebView2SourceChangedEventArgs e) {
+        private void GoForWardBtEnablset() {
             btGoBack.Enabled = wbRssLink.CanGoBack;
             btGoFard.Enabled = wbRssLink.CanGoForward;
         }
 
+
         private void Registrgt_Click(object sender, EventArgs e) {
             cburl.Items.Add(tburl.Text);
-           // urltitle.Add(tburl.Text,);
+            rssurldict.Add(tburl.Text, cburl.Text);
 
         }
 
+        private void Form1_Load(object sender, EventArgs e) {
+
+            GoForWardBtEnablset();
+
+            cburl.Items.Add("主要");
+            cburl.Items.Add("国内");
+            cburl.Items.Add("国際");
+            cburl.Items.Add("経済");
+            cburl.Items.Add("エンタメ");
+            cburl.Items.Add("スポーツ");
+            cburl.Items.Add("IT");
+            cburl.Items.Add("科学");
+            cburl.Items.Add("地域");
+
+            //cburl.DataSource = rssurldict.Select(k => k.Key).ToList();
+        }
     }
 }
