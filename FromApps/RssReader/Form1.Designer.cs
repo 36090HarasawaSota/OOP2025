@@ -78,6 +78,7 @@
             btGoBack.TabIndex = 4;
             btGoBack.Text = "進む";
             btGoBack.UseVisualStyleBackColor = true;
+            btGoBack.Click += btGoFard_Click;
             // 
             // btGoFard
             // 
@@ -87,6 +88,7 @@
             btGoFard.TabIndex = 5;
             btGoFard.Text = "戻る";
             btGoFard.UseVisualStyleBackColor = true;
+            btGoFard.Click += btGoBack_Click;
             // 
             // cburl
             // 
@@ -109,16 +111,16 @@
             // 
             ourllb.AutoSize = true;
             ourllb.Font = new Font("Yu Gothic UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            ourllb.Location = new Point(123, 87);
+            ourllb.Location = new Point(171, 90);
             ourllb.Name = "ourllb";
-            ourllb.Size = new Size(181, 37);
+            ourllb.Size = new Size(133, 37);
             ourllb.TabIndex = 8;
-            ourllb.Text = "お気に入りURL";
+            ourllb.Text = "お気に入り";
             // 
             // Registrgt
             // 
             Registrgt.Font = new Font("Yu Gothic UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            Registrgt.Location = new Point(923, 88);
+            Registrgt.Location = new Point(923, 86);
             Registrgt.Name = "Registrgt";
             Registrgt.Size = new Size(152, 44);
             Registrgt.TabIndex = 9;

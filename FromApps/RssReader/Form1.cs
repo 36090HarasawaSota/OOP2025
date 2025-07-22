@@ -5,7 +5,7 @@ using static System.Net.WebRequestMethods;
 
 namespace RssReader {
     public partial class Form1 : Form {
-
+        Dictionary<string, string> urltitle = new Dictionary<string, string>();
         private List<ItemData> items;
 
         public Form1() {
@@ -36,6 +36,7 @@ namespace RssReader {
             btGoBack.Enabled = false;
             btGoFard.Enabled = false;
 
+            cburl.Items.Add(cburl.Text);
         }
 
 
@@ -47,13 +48,12 @@ namespace RssReader {
         }
 
         private void btGoFard_Click(object sender, EventArgs e) {
-
             wbRssLink.Source = new Uri(items[lbTitles.SelectedIndex + 1].Link);
-            wbRssLink.GoForward();
+            lbTitles.SelectedIndex++;
         }
         private void btGoBack_Click(object sender, EventArgs e) {
             wbRssLink.Source = new Uri(items[lbTitles.SelectedIndex - 1].Link);
-            wbRssLink.GoBack();
+            lbTitles.SelectedIndex--;
         }
 
 
@@ -66,6 +66,9 @@ namespace RssReader {
 
         private void Registrgt_Click(object sender, EventArgs e) {
             cburl.Items.Add(tburl.Text);
+           // urltitle.Add(tburl.Text,);
+
         }
+
     }
 }
