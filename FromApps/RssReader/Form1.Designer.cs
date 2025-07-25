@@ -26,12 +26,13 @@
             btRssGet = new Button();
             lbTitles = new ListBox();
             wbRssLink = new Microsoft.Web.WebView2.WinForms.WebView2();
-            btGoBack = new Button();
             btGoFard = new Button();
+            btGoBack = new Button();
             cburl = new ComboBox();
             tburl = new TextBox();
             ourllb = new Label();
             Registrgt = new Button();
+            btremove = new Button();
             ((System.ComponentModel.ISupportInitialize)wbRssLink).BeginInit();
             SuspendLayout();
             // 
@@ -70,25 +71,25 @@
             wbRssLink.ZoomFactor = 1D;
             wbRssLink.SourceChanged += wvRssLink_SourceChanged;
             // 
-            // btGoBack
-            // 
-            btGoBack.Location = new Point(172, 16);
-            btGoBack.Name = "btGoBack";
-            btGoBack.Size = new Size(132, 48);
-            btGoBack.TabIndex = 4;
-            btGoBack.Text = "進む";
-            btGoBack.UseVisualStyleBackColor = true;
-            btGoBack.Click += btGoFard_Click;
-            // 
             // btGoFard
             // 
-            btGoFard.Location = new Point(35, 17);
+            btGoFard.Location = new Point(172, 16);
             btGoFard.Name = "btGoFard";
-            btGoFard.Size = new Size(122, 47);
-            btGoFard.TabIndex = 5;
-            btGoFard.Text = "戻る";
+            btGoFard.Size = new Size(132, 48);
+            btGoFard.TabIndex = 4;
+            btGoFard.Text = "進む";
             btGoFard.UseVisualStyleBackColor = true;
-            btGoFard.Click += btGoBack_Click;
+            btGoFard.Click += btGoFard_Click;
+            // 
+            // btGoBack
+            // 
+            btGoBack.Location = new Point(35, 17);
+            btGoBack.Name = "btGoBack";
+            btGoBack.Size = new Size(122, 47);
+            btGoBack.TabIndex = 5;
+            btGoBack.Text = "戻る";
+            btGoBack.UseVisualStyleBackColor = true;
+            btGoBack.Click += btGoBack_Click;
             // 
             // cburl
             // 
@@ -102,7 +103,7 @@
             // tburl
             // 
             tburl.Font = new Font("Yu Gothic UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            tburl.Location = new Point(323, 87);
+            tburl.Location = new Point(174, 87);
             tburl.Name = "tburl";
             tburl.Size = new Size(581, 43);
             tburl.TabIndex = 7;
@@ -111,7 +112,7 @@
             // 
             ourllb.AutoSize = true;
             ourllb.Font = new Font("Yu Gothic UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            ourllb.Location = new Point(171, 90);
+            ourllb.Location = new Point(35, 99);
             ourllb.Name = "ourllb";
             ourllb.Size = new Size(133, 37);
             ourllb.TabIndex = 8;
@@ -120,13 +121,23 @@
             // Registrgt
             // 
             Registrgt.Font = new Font("Yu Gothic UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            Registrgt.Location = new Point(923, 86);
+            Registrgt.Location = new Point(770, 87);
             Registrgt.Name = "Registrgt";
-            Registrgt.Size = new Size(152, 44);
+            Registrgt.Size = new Size(134, 49);
             Registrgt.TabIndex = 9;
             Registrgt.Text = "登録";
             Registrgt.UseVisualStyleBackColor = true;
             Registrgt.Click += Registrgt_Click;
+            // 
+            // btremove
+            // 
+            btremove.Location = new Point(923, 87);
+            btremove.Name = "btremove";
+            btremove.Size = new Size(152, 49);
+            btremove.TabIndex = 10;
+            btremove.Text = "削除";
+            btremove.UseVisualStyleBackColor = true;
+            btremove.Click += btremove_Click;
             // 
             // Form1
             // 
@@ -134,12 +145,13 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             ClientSize = new Size(1104, 627);
+            Controls.Add(btremove);
             Controls.Add(Registrgt);
             Controls.Add(ourllb);
             Controls.Add(tburl);
             Controls.Add(cburl);
-            Controls.Add(btGoFard);
             Controls.Add(btGoBack);
+            Controls.Add(btGoFard);
             Controls.Add(wbRssLink);
             Controls.Add(lbTitles);
             Controls.Add(btRssGet);
@@ -157,11 +169,12 @@
         private Button btRssGet;
         private ListBox lbTitles;
         private Microsoft.Web.WebView2.WinForms.WebView2 wbRssLink;
-        private Button btGoBack;
         private Button btGoFard;
+        private Button btGoBack;
         private ComboBox cburl;
         private TextBox tburl;
         private Label ourllb;
         private Button Registrgt;
+        private Button btremove;
     }
 }

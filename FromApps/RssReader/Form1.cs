@@ -46,21 +46,21 @@ namespace RssReader {
                     items.ForEach(item => lbTitles.Items.Add(item.Title));
 
 
-                    btGoBack.Enabled = false;
                     btGoFard.Enabled = false;
+                    btGoBack.Enabled = false;
 
                 } else {
 
-                string xml = await hc.GetStringAsync(cburl.Text);
-                XDocument xdoc = XDocument.Parse(xml);
+                    string xml = await hc.GetStringAsync(cburl.Text);
+                    XDocument xdoc = XDocument.Parse(xml);
 
-                //RSSを解析して必要な要素を取得
-                items = xdoc.Root.Descendants("item")
-                    .Select(x =>
-                        new ItemData {
-                            Title = (string?)x.Element("title"),
-                            Link = (string?)x.Element("link"),
-                        }).ToList();
+                    //RSSを解析して必要な要素を取得
+                    items = xdoc.Root.Descendants("item")
+                        .Select(x =>
+                            new ItemData {
+                                Title = (string?)x.Element("title"),
+                                Link = (string?)x.Element("link"),
+                            }).ToList();
                 }
 
                 //リストボックスへタイトルを表示
@@ -68,8 +68,8 @@ namespace RssReader {
                 items.ForEach(item => lbTitles.Items.Add(item.Title));
 
             }
-            btGoBack.Enabled = false;
             btGoFard.Enabled = false;
+            btGoBack.Enabled = false;
 
 
         }
@@ -80,28 +80,32 @@ namespace RssReader {
                 wbRssLink.Source = new Uri(items[lbTitles.SelectedIndex].Link ?? "https://www.yahoo.co.jp");
             }
         }
-
-        private void btGoFard_Click(object sender, EventArgs e) {
-            wbRssLink.GoForward();
-        }
+        
         private void btGoBack_Click(object sender, EventArgs e) {
             wbRssLink.GoBack();
+            GoForWardBtEnablset();
+        }
+        private void btGoFard_Click(object sender, EventArgs e) {
+            wbRssLink.GoForward();
+            GoForWardBtEnablset();
         }
 
         private void wvRssLink_SourceChanged(object sender, Microsoft.Web.WebView2.Core.CoreWebView2SourceChangedEventArgs e) {
             GoForWardBtEnablset();
+           
         }
 
         private void GoForWardBtEnablset() {
-            btGoBack.Enabled = wbRssLink.CanGoBack;
             btGoFard.Enabled = wbRssLink.CanGoForward;
+            btGoBack.Enabled = wbRssLink.CanGoBack;
         }
 
 
         private void Registrgt_Click(object sender, EventArgs e) {
-
             cburl.Items.Add(tburl.Text);
             rssurldict.Add(tburl.Text, cburl.Text);
+
+            MessageBox.Show("お気に入り登録完成");
 
         }
 
@@ -120,6 +124,16 @@ namespace RssReader {
             cburl.Items.Add("地域");
 
             //cburl.DataSource = rssurldict.Select(k => k.Key).ToList();
+        }
+
+        private void btremove_Click(object sender, EventArgs e) {
+            rssurldict.Remove(cburl.Text);     
+            cburl.Items.Remove(cburl.Text);
+            cburl.Text = string.Empty;
+            tburl.Text = string.Empty;
+
+            MessageBox.Show($"削除しました。");
+
         }
     }
 }
