@@ -38,7 +38,8 @@
             // 
             // btRssGet
             // 
-            btRssGet.Location = new Point(923, 12);
+            btRssGet.Font = new Font("Yu Gothic UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
+            btRssGet.Location = new Point(16, 22);
             btRssGet.Name = "btRssGet";
             btRssGet.Size = new Size(152, 49);
             btRssGet.TabIndex = 1;
@@ -49,22 +50,25 @@
             // lbTitles
             // 
             lbTitles.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lbTitles.DrawMode = DrawMode.OwnerDrawFixed;
             lbTitles.Font = new Font("Yu Gothic UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
             lbTitles.FormattingEnabled = true;
             lbTitles.ItemHeight = 25;
-            lbTitles.Location = new Point(35, 151);
+            lbTitles.Location = new Point(35, 142);
             lbTitles.Name = "lbTitles";
-            lbTitles.Size = new Size(348, 454);
+            lbTitles.Size = new Size(352, 454);
             lbTitles.TabIndex = 2;
             lbTitles.Click += lbTitles_SelectedIndexChanged;
+            lbTitles.DrawItem += lbTitles_DrawItem;
             lbTitles.SelectedIndexChanged += lbTitles_SelectedIndexChanged;
             // 
             // wbRssLink
             // 
             wbRssLink.AllowExternalDrop = true;
+            wbRssLink.BackColor = SystemColors.Window;
             wbRssLink.CreationProperties = null;
             wbRssLink.DefaultBackgroundColor = Color.White;
-            wbRssLink.Location = new Point(406, 151);
+            wbRssLink.Location = new Point(406, 142);
             wbRssLink.Name = "wbRssLink";
             wbRssLink.Size = new Size(669, 454);
             wbRssLink.TabIndex = 3;
@@ -73,7 +77,8 @@
             // 
             // btGoFard
             // 
-            btGoFard.Location = new Point(172, 16);
+            btGoFard.Font = new Font("Yu Gothic UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
+            btGoFard.Location = new Point(783, 22);
             btGoFard.Name = "btGoFard";
             btGoFard.Size = new Size(132, 48);
             btGoFard.TabIndex = 4;
@@ -83,9 +88,10 @@
             // 
             // btGoBack
             // 
-            btGoBack.Location = new Point(35, 17);
+            btGoBack.Font = new Font("Yu Gothic UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
+            btGoBack.Location = new Point(932, 22);
             btGoBack.Name = "btGoBack";
-            btGoBack.Size = new Size(122, 47);
+            btGoBack.Size = new Size(143, 48);
             btGoBack.TabIndex = 5;
             btGoBack.Text = "戻る";
             btGoBack.UseVisualStyleBackColor = true;
@@ -95,7 +101,7 @@
             // 
             cburl.Font = new Font("Yu Gothic UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
             cburl.FormattingEnabled = true;
-            cburl.Location = new Point(323, 16);
+            cburl.Location = new Point(183, 22);
             cburl.Name = "cburl";
             cburl.Size = new Size(581, 45);
             cburl.TabIndex = 6;
@@ -103,7 +109,7 @@
             // tburl
             // 
             tburl.Font = new Font("Yu Gothic UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            tburl.Location = new Point(174, 87);
+            tburl.Location = new Point(183, 87);
             tburl.Name = "tburl";
             tburl.Size = new Size(581, 43);
             tburl.TabIndex = 7;
@@ -111,8 +117,10 @@
             // ourllb
             // 
             ourllb.AutoSize = true;
+            ourllb.FlatStyle = FlatStyle.Popup;
             ourllb.Font = new Font("Yu Gothic UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            ourllb.Location = new Point(35, 99);
+            ourllb.ForeColor = Color.FromArgb(64, 64, 64);
+            ourllb.Location = new Point(35, 90);
             ourllb.Name = "ourllb";
             ourllb.Size = new Size(133, 37);
             ourllb.TabIndex = 8;
@@ -120,8 +128,8 @@
             // 
             // Registrgt
             // 
-            Registrgt.Font = new Font("Yu Gothic UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            Registrgt.Location = new Point(770, 87);
+            Registrgt.Font = new Font("Yu Gothic UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
+            Registrgt.Location = new Point(781, 81);
             Registrgt.Name = "Registrgt";
             Registrgt.Size = new Size(134, 49);
             Registrgt.TabIndex = 9;
@@ -131,9 +139,10 @@
             // 
             // btremove
             // 
-            btremove.Location = new Point(923, 87);
+            btremove.Font = new Font("Yu Gothic UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
+            btremove.Location = new Point(932, 81);
             btremove.Name = "btremove";
-            btremove.Size = new Size(152, 49);
+            btremove.Size = new Size(143, 49);
             btremove.TabIndex = 10;
             btremove.Text = "削除";
             btremove.UseVisualStyleBackColor = true;
@@ -144,7 +153,8 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(1104, 627);
+            BackColor = Color.AliceBlue;
+            ClientSize = new Size(1103, 627);
             Controls.Add(btremove);
             Controls.Add(Registrgt);
             Controls.Add(ourllb);

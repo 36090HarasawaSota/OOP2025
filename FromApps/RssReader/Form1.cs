@@ -80,7 +80,7 @@ namespace RssReader {
                 wbRssLink.Source = new Uri(items[lbTitles.SelectedIndex].Link ?? "https://www.yahoo.co.jp");
             }
         }
-        
+
         private void btGoBack_Click(object sender, EventArgs e) {
             wbRssLink.GoBack();
             GoForWardBtEnablset();
@@ -92,7 +92,7 @@ namespace RssReader {
 
         private void wvRssLink_SourceChanged(object sender, Microsoft.Web.WebView2.Core.CoreWebView2SourceChangedEventArgs e) {
             GoForWardBtEnablset();
-           
+
         }
 
         private void GoForWardBtEnablset() {
@@ -102,11 +102,15 @@ namespace RssReader {
 
 
         private void Registrgt_Click(object sender, EventArgs e) {
+            if (!Uri.IsWellFormedUriString(cburl.Text,UriKind.Absolute)) {
+                MessageBox.Show("有効なURLではありません");
+                return;
+            }
+
             cburl.Items.Add(tburl.Text);
             rssurldict.Add(tburl.Text, cburl.Text);
-
-            MessageBox.Show("お気に入り登録完成");
-
+            MessageBox.Show("お気に入り登録完了");
+            tburl.Text = string.Empty;
         }
 
         private void Form1_Load(object sender, EventArgs e) {
@@ -129,7 +133,7 @@ namespace RssReader {
         private void btremove_Click(object senSder, EventArgs e) {
 
 
-            rssurldict.Remove(cburl.Text);     
+            rssurldict.Remove(cburl.Text);
             cburl.Items.Remove(cburl.Text);
             cburl.Text = string.Empty;
             tburl.Text = string.Empty;
@@ -137,6 +141,38 @@ namespace RssReader {
             wbRssLink.Source = new Uri("about: blank");
             MessageBox.Show($"削除しました。");
 
+        }
+
+        //手順
+        //①交互に色を変更したいリストボックスのDrawModeプロパティを、OwnerDrawFixedに変更
+        //②イベントから「DrawItem」をダブルクリック
+        //③以下のイベントハンドラが自動生成されたら中の処理をコピペ
+
+        private void lbTitles_DrawItem(object sender, DrawItemEventArgs e) {
+            var idx = e.Index;                                                      //描画対象の行
+            if (idx == -1) return;                                                  //範囲外なら何もしない
+            var sts = e.State;                                                      //セルの状態
+            var fnt = e.Font;                                                       //フォント
+            var _bnd = e.Bounds;                                                    //描画範囲(オリジナル)
+            var bnd = new RectangleF(_bnd.X, _bnd.Y, _bnd.Width, _bnd.Height);     //描画範囲(描画用)
+            var txt = (string)lbTitles.Items[idx];                                  //リストボックス内の文字
+            var bsh = new SolidBrush(lbTitles.ForeColor);                           //文字色
+            var sel = (DrawItemState.Selected == (sts & DrawItemState.Selected));   //選択行か
+            var odd = (idx % 2 == 1);                                               //奇数行か
+            var fore = Brushes.WhiteSmoke;                                         //偶数行の背景色
+            var bak = Brushes.AliceBlue;                                           //奇数行の背景色
+
+            e.DrawBackground();                                                     //背景描画
+
+            //奇数項目の背景色を変える（選択行は除く）
+            if (odd && !sel) {
+                e.Graphics.FillRectangle(bak, bnd);
+            } else if (!odd && !sel) {
+                e.Graphics.FillRectangle(fore, bnd);
+            }
+
+            //文字を描画
+            e.Graphics.DrawString(txt, fnt, bsh, bnd);
         }
     }
 }
