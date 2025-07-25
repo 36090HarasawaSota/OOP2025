@@ -133,7 +133,7 @@ namespace RssReader {
             cburl.Items.Remove(cburl.Text);
             cburl.Text = string.Empty;
             tburl.Text = string.Empty;
-
+            lbTitles.Items.Clear();
             MessageBox.Show($"íœ‚µ‚Ü‚µ‚½B");
 
         }
