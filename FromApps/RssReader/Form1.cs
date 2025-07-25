@@ -127,6 +127,7 @@ namespace RssReader {
         }
 
         private void btremove_Click(object sender, EventArgs e) {
+
             rssurldict.Remove(cburl.Text);     
             cburl.Items.Remove(cburl.Text);
             cburl.Text = string.Empty;
