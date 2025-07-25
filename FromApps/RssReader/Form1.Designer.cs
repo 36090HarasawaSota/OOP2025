@@ -54,7 +54,7 @@
             lbTitles.ItemHeight = 25;
             lbTitles.Location = new Point(35, 151);
             lbTitles.Name = "lbTitles";
-            lbTitles.Size = new Size(479, 454);
+            lbTitles.Size = new Size(348, 454);
             lbTitles.TabIndex = 2;
             lbTitles.Click += lbTitles_SelectedIndexChanged;
             lbTitles.SelectedIndexChanged += lbTitles_SelectedIndexChanged;
@@ -64,9 +64,9 @@
             wbRssLink.AllowExternalDrop = true;
             wbRssLink.CreationProperties = null;
             wbRssLink.DefaultBackgroundColor = Color.White;
-            wbRssLink.Location = new Point(550, 151);
+            wbRssLink.Location = new Point(406, 151);
             wbRssLink.Name = "wbRssLink";
-            wbRssLink.Size = new Size(525, 454);
+            wbRssLink.Size = new Size(669, 454);
             wbRssLink.TabIndex = 3;
             wbRssLink.ZoomFactor = 1D;
             wbRssLink.SourceChanged += wvRssLink_SourceChanged;

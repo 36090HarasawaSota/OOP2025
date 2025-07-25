@@ -126,7 +126,7 @@ namespace RssReader {
             //cburl.DataSource = rssurldict.Select(k => k.Key).ToList();
         }
 
-        private void btremove_Click(object sender, EventArgs e) {
+        private void btremove_Click(object senSder, EventArgs e) {
 
 
             rssurldict.Remove(cburl.Text);     
@@ -134,6 +134,7 @@ namespace RssReader {
             cburl.Text = string.Empty;
             tburl.Text = string.Empty;
             lbTitles.Items.Clear();
+            wbRssLink.Source = new Uri("about: blank");
             MessageBox.Show($"çÌèúÇµÇ‹ÇµÇΩÅB");
 
         }
