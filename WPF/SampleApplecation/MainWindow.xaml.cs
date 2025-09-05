@@ -20,9 +20,24 @@ namespace SampleApplecation
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
-        {
+        public MainWindow(){
             InitializeComponent();
+        }
+
+        private void seasonComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            seasonTextBlock.Text = (string)((ComboBoxItem)(seasonComboBox.SelectedItem)).Content;
+        }
+
+        private void colorRedioButton_Checked(object sender, RoutedEventArgs e) {
+            colorText.Text = (string)((RadioButton)(sender)).Content;
+        }
+
+        private void chackBox_Unchecked(object sender, RoutedEventArgs e) {
+            checkBoxTextBlock.Text = "未チェック";
+        }
+
+        private void chackBox_Checked(object sender, RoutedEventArgs e) {
+            checkBoxTextBlock.Text = "チェック済み";
         }
     }
 }
