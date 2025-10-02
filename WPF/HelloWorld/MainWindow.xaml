@@ -31,6 +31,8 @@
         Command="{Binding ChangeMessageCommand}"
         CommandParameter="{Binding NewMessage2}"/>
 
+        
+        
     </Grid>
     
     
