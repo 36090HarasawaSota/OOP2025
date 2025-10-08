@@ -26,6 +26,8 @@ namespace PrismObservesSample{
 
         public DelegateCommand SumCommand { get; }
 
+
+
         //コンストラクタ
         public MainWindowViewModel() {
             SumCommand = new DelegateCommand(ExecuteSum, CanExecuteSum)
