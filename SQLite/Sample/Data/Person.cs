@@ -29,5 +29,7 @@ namespace Sample.Data{
         public override string ToString() {
             return $"{Id}{Name}{Phone}";
         }
+
+
     }
 }
