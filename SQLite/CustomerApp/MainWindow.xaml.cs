@@ -164,6 +164,11 @@ public partial class MainWindow : Window {
             return;
         }
         PersonListView.ItemsSource = filterList;
+
+        SearchHintText.Visibility = string.IsNullOrWhiteSpace(SearchTextBox.Text)
+       ? Visibility.Visible
+       : Visibility.Collapsed;
+
     }
 
     private void PersonListView_SelectionChanged(object sender, SelectionChangedEventArgs e) {

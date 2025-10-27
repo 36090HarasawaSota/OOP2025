@@ -69,7 +69,17 @@
                 <RowDefinition Height="7*" />
             </Grid.RowDefinitions>
 
-            <TextBox Grid.Row="0" x:Name="SearchTextBox" Margin="0,15,0,0" FontSize="25" TextChanged="SearchTextBox_TextChanged"/>
+            <Grid Grid.Row="0" Margin="0,15,0,0">
+                <!-- 検索ボックス -->
+                <TextBox x:Name="SearchTextBox" FontSize="25" VerticalContentAlignment="Center" 
+                         TextAlignment="Left" TextChanged="SearchTextBox_TextChanged"/>
+
+                <!-- ヒントテキスト -->
+                <TextBlock x:Name="SearchHintText" Text="お探しのID(名前)を入力してください" FontSize="25"  Foreground="Gray" Margin="10,5,0,0" IsHitTestVisible="False" 
+                           VerticalAlignment="Center" HorizontalAlignment="Left" Visibility="Visible"/>
+            </Grid>
+
+
             <ListView Grid.Row="1" x:Name="PersonListView" Margin="0,5,0,0" Height="600" SelectionChanged="PersonListView_SelectionChanged">
                 <ListView.ItemTemplate>
                     <DataTemplate>
