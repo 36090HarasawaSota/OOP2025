@@ -5,8 +5,8 @@
 
         Exercise1_2();
         Console.WriteLine();
-        Exercise1_3();
-        Console.WriteLine();
+    //    Exercise1_3();
+    //    Console.WriteLine();
     //    Exercise1_4();
     //    Console.WriteLine();
     //    Exercise1_5();
@@ -23,14 +23,8 @@
             var book = Library.Books.MaxBy(b => b.Price);
         }
 
-        private static void Exercise1_3() {
-            var selected = Library.Books
-                .GroupBy(b => b.PublishedYear)
-                .OrderBy(c => c!.Key);
+        void Exercise1_3() {
 
-            foreach (var book in selected) {
-                Console.WriteLine($"{book!.Key}年　{book.Count()}");
-            }
         }
 
         void Exercise1_4() {
