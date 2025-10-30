@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Exercise01 {
     public class Program {
@@ -17,8 +18,8 @@ namespace Exercise01 {
             Console.WriteLine();
             Exercise1_7();
             Console.WriteLine();
-            //    Exercise1_8();
-            //    Console.ReadLine();
+            Exercise1_8();
+            Console.ReadLine();
         }
 
         private static void Exercise1_2() {
@@ -107,8 +108,21 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_8() {
+            var groups = Library.Categories
+                .GroupJoin(Library.Books
+                      , c => c.Id
+                      , b => b.CategoryId
+                      , (c, books) => new {
+                          Category = c.Name,
+                          Books = books,
+                })
+                .Where(g => g.Books.Count() >= 4); ;
+
+            foreach (var book in groups) {
+                Console.WriteLine(book.Category);
+            }
 
         }
-
     }
+
 }
