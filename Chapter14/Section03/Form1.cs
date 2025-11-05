@@ -8,8 +8,17 @@ namespace Section03 {
 
         private async void button1_Click(object sender, EventArgs e) {
             ToolStripStatusLabel1.Text = "";
-            await DoLongTimeWork();
+            var elapsed = await DoLongTimeWorkAsync(4000);
             ToolStripStatusLabel1.Text = $"終了";
+        }
+
+        private async Task<long> DoLongTimeWorkAsync(int v) {
+            var sw = Stopwatch.StartNew();
+            await Task.Run(() => {
+                System.Threading.Thread.Sleep(5000);
+            });
+            sw.Stop();
+            return sw.ElapsedMilliseconds;
         }
 
         //戻り値のある同期メソッド
