@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace TextFileProcessorDI {
     internal class LineToHalfNumberServics : ITextFileService{
-        string text;
 
         public void Initialize(string fname) {
 
