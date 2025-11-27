@@ -5,7 +5,7 @@ namespace LineCounter {
         static void Main(string[] args) {
 
             Console.Write("ファイルパスを入力してください: ");
-            string path = Console.ReadLine()?.Trim();
+            string path = Console.ReadLine()?.Trim('"');
 
 
             Console.Write("検索文字列を入力してください: ");
